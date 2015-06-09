@@ -39,6 +39,7 @@ body {
 }
 
 #navbar {
+  padding-top: 2vw;
   height: 18vh;
   opacity: 0.8;
   font-size: 28px;

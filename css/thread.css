@@ -1,0 +1,50 @@
+#refresh {
+  left: 3vw;
+  top: 6vh; 
+  font-size: 4vw;
+  position: absolute;
+  opacity: .6;
+  cursor: pointer;
+  z-index: 1000;
+  color: white;
+}
+#menu {
+  right: 3vw;
+  top: 6vh; 
+  font-size: 4vw;
+  position: absolute;
+  opacity: .6;
+  cursor: pointer;
+  z-index: 1000;
+  color: white;
+}
+
+li {
+  background-color: rgba(256,256,256,0.6);
+}
+
+body {
+  background-color: rgba(26,26,26,0.85);
+}
+
+#ontop {
+  position: absolute;
+  width: 100%;
+}
+.box, .smallbox {
+  border: 1px solid black;
+  display: inline-block;
+  padding: 0;
+  overflow: hidden;
+}
+.box {
+  height: 50vh;
+}
+.smallbox {
+  height: 25vh;
+}
+.insta {
+  height: 100%;
+  vertical-align: middle;
+  display: inline-block;
+}

@@ -3,7 +3,7 @@
   top: 6vh; 
   font-size: 4vw;
   position: absolute;
-  opacity: .6;
+  opacity: .8;
   cursor: pointer;
   z-index: 1000;
   color: white;
@@ -13,7 +13,7 @@
   top: 6vh; 
   font-size: 4vw;
   position: absolute;
-  opacity: .6;
+  opacity: .8;
   cursor: pointer;
   z-index: 1000;
   color: white;
@@ -32,7 +32,6 @@ body {
   width: 100%;
 }
 .box, .smallbox {
-  border: 1px solid black;
   display: inline-block;
   padding: 0;
   overflow: hidden;

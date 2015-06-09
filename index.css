@@ -10,16 +10,14 @@ body {
   font-size: 8vh;
   padding-left: 15vw;
   padding-top: 10vh;
-  width: 58vw;
 }
 #sidebar {
   height: 100%;
-  padding-top: 4vh;
+  padding-top: 6vh;
   color: black;
 }
 #sidebar li {
-  width: 250%;
-  line-height: 12vh;
+  line-height: 8vh;
   list-style: none;
   border: 0 solid black;
   border-bottom-width:1px;

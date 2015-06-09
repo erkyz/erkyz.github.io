@@ -86,7 +86,7 @@ function createCORSRequest(method, url) {
   return xhr;
 }
 
-var xhr = createCORSRequest('GET', 'www.goodreads.com/shelf/list.xml?user_id=33571041&key=mg9FnpqugGOl2CmAMWH9g');
+var xhr = createCORSRequest('GET', 'http://www.goodreads.com/shelf/list.xml?user_id=33571041&key=mg9FnpqugGOl2CmAMWH9g');
 if (!xhr) {
   throw new Error('CORS not supported');
 }

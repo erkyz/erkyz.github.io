@@ -1,0 +1,33 @@
+.quote {
+  font-size: 18px;
+  display: inline-block;
+  line-height: 1.45;
+  position: absolute;
+  color: white;
+}
+.quote:before {
+  display: block;
+  content: "\201C";
+  font-size: 80px;
+  position: absolute;
+  left: -20px;
+  top: -25px;
+  color: white;
+}
+.quote:after {
+  right: -20px;
+  content: "\201D";
+  font-size: 80px;
+  position: absolute;
+  top: 0px;
+  color: white;
+}
+.quote cite {
+  color: white;
+  font-size: 14px;
+  display: block;
+  margin-top: 5px;
+}
+.quote cite:before {
+  content: "\2014 \2009";
+}

@@ -1,0 +1,57 @@
+@import url(http://fonts.googleapis.com/css?family=Playfair+Display);
+
+* {
+  font-family: 'Playfair Display', serif;
+}
+body {
+  margin: 0px;
+}
+
+.full{
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.quote {
+  font-size: 18px;
+  display: inline-block;
+  line-height: 1.45;
+  position: absolute;
+  padding: 0.35em 40px;
+}
+.quote:before {
+  display: block;
+  content: "\201C";
+  font-size: 80px;
+  position: absolute;
+  left: -20px;
+  top: -25px;
+  color: #7a7a7a;
+}
+.quote:after {
+  right: -20px;
+  content: "\201D";
+  font-size: 80px;
+  position: absolute;
+  top: 0px;
+  color: #7a7a7a;
+}
+.quote cite {
+  color: #999999;
+  font-size: 14px;
+  display: block;
+  margin-top: 5px;
+}
+.quote cite:before {
+  content: "\2014 \2009";
+}
+
+.blur {
+  -webkit-filter: blur(2px);
+  -moz-filter: blur(2px);
+  -o-filter: blur(2px);
+  -ms-filter: blur(2px);
+  filter: blur(2px);
+  height: 100%;
+}

@@ -20,7 +20,7 @@
 }
 
 li {
-  background-color: rgba(256,256,256,0.6);
+  background-color: white;
 }
 
 body {
@@ -35,12 +35,25 @@ body {
   display: inline-block;
   padding: 0;
   overflow: hidden;
+  color: white;
+  text-align: center;
+  border: 1px solid white;
+  font-style: italic;
 }
 .box {
   height: 50vh;
+  font-size: 5vh;
+}
+.box .author {
+  font-size: 4vh;
+  font-style: normal; 
 }
 .smallbox {
   height: 25vh;
+  font-size: 3vh;
+}
+.smallbox .author {
+  font-size: 2vh;
 }
 .insta {
   height: 100%;

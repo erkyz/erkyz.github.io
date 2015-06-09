@@ -5,6 +5,7 @@ $('#refresh').click(function() {
 $('#menu').hover(
   function() {
     $('#sidebar').show();
+    $('#menu').hide();
   },
   function() {
     $('#sidebar').hover(
@@ -13,12 +14,14 @@ $('#menu').hover(
       },
       function() {
         $('#sidebar').hide();
+        $('#menu').show();
       }
     );
   }
 );
 
-var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/1bdLCDybS8QrSY2atgRE3QldTEokHQyCDA2sG3x3vjqc/pubhtml';
+var insta_url = "https://docs.google.com/spreadsheets/d/1bdLCDybS8QrSY2atgRE3QldTEokHQyCDA2sG3x3vjqc/pubhtml";
+var goodreads_url = 'https://docs.google.com/spreadsheets/d/1ndkMut0Z75GO6XKyDMhMyDdOzBoLTkJ0gEhviKUP9ro/pubhtml';
 
 $(document).ready(function() {
   $('#sidebar').hide();
@@ -38,63 +41,56 @@ $(document).ready(function() {
     }
   }
   var boxes = []; for(i=0;i<total;i++) {boxes.push(i)}
+  var content = []; 
 
-  Tabletop.init( { key: public_spreadsheet_url,
-                        callback: function(data, tabletop) {
-                                    showInfo(data,tabletop,0,boxes,total)
-                                  },
-                        simpleSheet: true } )
+  Tabletop.init( { key: insta_url,
+    callback: function(data, tabletop) {
+      content = data;
+      Tabletop.init( { key: goodreads_url,
+        callback: function(data, tabletop) {
+          content = content.concat(data);
+          showInfo(shuffle(content),0,boxes,total);
+        },
+        simpleSheet: true } );
+      },
+  simpleSheet: true } );
+
 });
 
-function showInfo(data, tabletop, n, boxes, total) {
+// Came up with this in 251! (from StackOverflow because I'm lazy)
+function shuffle(o){
+   for(var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+      return o;
+} 
+
+function showInfo(data, n, boxes, total) {
   setTimeout(function() {
     // Pick box to fill. This is rather inefficient but I'm lazy
     var randInt = Math.floor(Math.random()*boxes.length);
-    if (data[n] != null) {
-      $('#box' + boxes[randInt]).css('background-color','black');
+    if (data[n].Photos != null) {
       $('#box' + boxes[randInt]).append('<img class="insta" src="' + data[n].Photos + '"></img>');
-    } else {
+      $('#box' + boxes[randInt]).css('display','none');
+      $('#box' + boxes[randInt]).fadeIn('300');
+    } else if (data[n].name != null) {
+      $('#box' + boxes[randInt]).css('background-color','#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6));
+      $('#box' + boxes[randInt]).css('opacity','0.8');
+      $('#box' + boxes[randInt]).css('padding-top','2vh');
+      $('#box' + boxes[randInt]).css('padding-left','1vw');
+      $('#box' + boxes[randInt]).css('padding-right','1vw');
 
+      var start = data[n].misc.indexOf('author')+7;
+      var end = data[n].misc.indexOf('name');
+      var author = data[n].misc.slice(start,end-1);
+      $('#box' + boxes[randInt]).html(data[n].name + '<div class="author">' + author + '</div>');
+      $('#box' + boxes[randInt]).css('display','none');
+      $('#box' + boxes[randInt]).fadeIn('300');
     }
     boxes.splice(randInt,1);
 
     if (n < total) {
-      showInfo(data,tabletop,n+1,boxes,total);
+      showInfo(data,n+1,boxes,total);
     }
-  }, 200);
+  }, 250);
 }
 
-function createCORSRequest(method, url) {
-  var xhr = new XMLHttpRequest();
-    if ("withCredentials" in xhr) {
 
-      // Check if the XMLHttpRequest object has a "withCredentials" property.
-      // "withCredentials" only exists on XMLHTTPRequest2 objects.
-      xhr.open(method, url, true);
-
-    } else if (typeof XDomainRequest != "undefined") {
-
-      // Otherwise, check if XDomainRequest.
-      // XDomainRequest only exists in IE, and is IE's way of making CORS requests.
-       xhr = new XDomainRequest();
-       xhr.open(method, url);
-    } else {
-
-      // Otherwise, CORS is not supported by the browser.
-      xhr = null;
-    }
-  return xhr;
-}
-
-var xhr = createCORSRequest('GET', 'http://www.goodreads.com/shelf/list.xml?user_id=33571041&key=mg9FnpqugGOl2CmAMWH9g');
-if (!xhr) {
-  throw new Error('CORS not supported');
-}
-
-xhr.onload = function() {
-   var responseText = xhr.responseText;
-    console.log(responseText);
-     // process the response.
-}
-
-xhr.send();

@@ -57,7 +57,7 @@ $('#thread').hover(
     $('#navbar').css('background-color','red');
     $('#navbar').css('opacity','0.5');
     $('#title').text("");
-    $('#navbar').text("See the books I've been reading and the photos I've been taking. Reload for more.");
+    $('#navbar').text("See the books I've been reading and the photos I've been taking.");
     $('#navbar').css('color','white');
     $('.quote').html("Sometimes I can feel my bones straining under the weight of all the lives I'm not living.");
     $('.quote').append('<cite>Jonathan Safran Foer, Extremely Loud and Incredibly Close</cite>');

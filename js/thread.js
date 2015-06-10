@@ -70,7 +70,7 @@ function showInfo(data, n, boxes, total) {
     if (data[n].Photos != null) {
       $('#box' + boxes[randInt]).append('<img class="insta" src="' + data[n].Photos + '"></img>');
       $('#box' + boxes[randInt]).css('display','none');
-      $('#box' + boxes[randInt]).fadeIn('300');
+      $('#box' + boxes[randInt]).fadeIn(300);
     } else if (data[n].name != null) {
       $('#box' + boxes[randInt]).css('background-color','#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6));
       $('#box' + boxes[randInt]).css('opacity','0.8');
@@ -81,16 +81,26 @@ function showInfo(data, n, boxes, total) {
       var start = data[n].misc.indexOf('author')+7;
       var end = data[n].misc.indexOf('name');
       var author = data[n].misc.slice(start,end-1);
-      $('#box' + boxes[randInt]).html(data[n].name + '<div class="author">' + author + '</div>');
+      $('#box' + boxes[randInt]).html('<a href="' + data[n].url + '">' + data[n].name + '</a><div class="author">' + author + '</div>');
       $('#box' + boxes[randInt]).css('display','none');
-      $('#box' + boxes[randInt]).fadeIn('300');
+      $('#box' + boxes[randInt]).fadeIn(300);
     }
     boxes.splice(randInt,1);
 
     if (n < total) {
       showInfo(data,n+1,boxes,total);
     }
+    else {
+      setTimeout(function() {
+        $('body').append('<div id="reloadMore">Refresh for more!</div>');
+        $('#reloadMore').fadeIn(300);
+
+        setTimeout(function() {
+          $('#reloadMore').fadeOut(3000);
+        }, 2000);
+      }, 2500);
+     }
   }, 250);
 }
 
-
+// TODO: onerror?

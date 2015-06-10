@@ -1,0 +1,18 @@
+#info {
+  font-size: 3vh;
+  line-height: 4.25vh;
+  padding-left: 4vw;
+  padding-right: 3vw;
+  padding-top: 3vh;
+}
+.sideglyph {
+  padding-top: 4vh;
+  padding-bottom: 1vh;
+  padding-left: 1vw;
+}
+#main, .fa-li {
+  padding-top: 2vh;
+}
+#linkedin, #github, #instagram {
+  cursor: pointer;
+}

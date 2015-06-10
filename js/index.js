@@ -57,7 +57,7 @@ $('#thread').hover(
     $('#navbar').css('background-color','red');
     $('#navbar').css('opacity','0.5');
     $('#title').text("");
-    $('#navbar').text("See what books I've been reading and what photos I've been taking.");
+    $('#navbar').text("See the books I've been reading and the photos I've been taking.");
     $('#navbar').css('color','white');
     $('.quote').html("Sometimes I can feel my bones straining under the weight of all the lives I'm not living.");
     $('.quote').append('<cite>Jonathan Safran Foer, Extremely Loud and Incredibly Close</cite>');
@@ -66,13 +66,13 @@ $('#thread').hover(
   }, original
 );
 
-$('#contact').hover(
+$('#more').hover(
   function() {
     $('body').css('background-image','url(https://lh3.googleusercontent.com/7PthQl5NDvqgAbfXjn1bofFQiUu4Nj_kxKeJlxvsx7A=w1106-h622-no)');
     $('#navbar').css('background-image','none');
     $('#navbar').css('background-color','white');
     $('#navbar').css('opacity','0.5');
-    $('#navbar').text("Get in touch!");
+    $('#navbar').text("Find out what we have in common, and contribute.");
     $('#title').text("");
     $('.quote').html("Death really did not matter to him but life did, and therefore the sensation he felt when they gave their decision was not a feeling of fear but of nostalgia.");
     $('.quote').css('font-size','14px');

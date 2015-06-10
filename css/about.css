@@ -6,12 +6,18 @@
   padding-top: 3vh;
 }
 .sideglyph {
-  padding-top: 4vh;
-  padding-bottom: 1vh;
-  padding-left: 1vw;
+  margin-top: 4vh;
+  margin-bottom: 1vh;
+  margin-left: 1vw;
 }
-#main, .fa-li {
+.main {
   padding-top: 2vh;
+}
+.side {
+  border: none !important;
+  padding-top: 4vh;
+  line-height: 3vh !important;
+  cursor: default !important;
 }
 #linkedin, #github, #instagram {
   cursor: pointer;

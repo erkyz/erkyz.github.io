@@ -81,6 +81,7 @@ function showInfo(data, n, boxes, total) {
       var start = data[n].misc.indexOf('author')+7;
       var end = data[n].misc.indexOf('name');
       var author = data[n].misc.slice(start,end-1);
+
       $('#box' + boxes[randInt]).html('<a href="' + data[n].url + '">' + data[n].name + '</a><div class="author">' + author + '</div>');
       $('#box' + boxes[randInt]).css('display','none');
       $('#box' + boxes[randInt]).fadeIn(300);
@@ -103,4 +104,3 @@ function showInfo(data, n, boxes, total) {
   }, 250);
 }
 
-// TODO: onerror?

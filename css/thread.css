@@ -1,22 +1,17 @@
-#refresh {
-  left: 3vw;
-  top: 6vh; 
-  font-size: 4vw;
-  position: absolute;
-  opacity: .8;
-  cursor: pointer;
+.glyphicon {
   z-index: 1000;
+  cursor: pointer;
+  position: absolute;
+  font-size: 4vw;
+  top: 6vh; 
+  opacity: .8;
   color: white;
 }
-#menu {
+.glyphicon-question-sign {
+  right: 8vw;
+}
+.glyphicon-menu-hamburger {
   right: 3vw;
-  top: 6vh; 
-  font-size: 4vw;
-  position: absolute;
-  opacity: .8;
-  cursor: pointer;
-  z-index: 1000;
-  color: white;
 }
 
 li {
@@ -27,12 +22,9 @@ body {
   background-color: rgba(26,26,26,0.85);
 }
 
-a {
-  text-decoration: none;
-  color: white;
-}
-a:focus a:hover {
+.box a {
   text-decoration: none !important;
+  color: white !important;
 }
 .box, .smallbox {
   display: inline-block;
@@ -66,7 +58,7 @@ a:focus a:hover {
 }
 
 #reloadMore {
-  background-color: rgba(256,256,256,0.75);
+  background-color: rgba(256,256,256,0.8);
   margin-left: auto;
   margin-right: auto;
   left: 36vw;
@@ -74,4 +66,14 @@ a:focus a:hover {
   position: absolute;
   font-size: 3vw;
   display: none;
+}
+#what-is-this {
+  background-color: rgba(256,256,256,0.8);
+  margin-left: auto;
+  margin-right: auto;
+  left: 36vw;
+  top: 36vh;
+  padding: 2vw;
+  position: absolute;
+  font-size: 3vw;
 }

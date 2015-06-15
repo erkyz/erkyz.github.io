@@ -1,11 +1,15 @@
-$('#refresh').click(function() {
-  location.reload(); 
-});
-
-$('#menu').hover(
+$('.glyphicon-question-sign').hover(
+  function() {
+    $('body').append('<div id="what-is-this">This is a randomly generated collection of books I\'ve read and photos I\'ve taken. Refresh the page for more!</div>');
+  },
+  function() {
+    $('#what-is-this').remove();   
+  }
+);
+$('.glyphicon-menu-hamburger').hover(
   function() {
     $('#sidebar').show();
-    $('#menu').hide();
+    $('.glyphicon').hide();
   },
   function() {
     $('#sidebar').hover(
@@ -13,8 +17,8 @@ $('#menu').hover(
         $('#sidebar').show();
       },
       function() {
+        $('.glyphicon').show();
         $('#sidebar').hide();
-        $('#menu').show();
       }
     );
   }
@@ -63,6 +67,17 @@ function shuffle(o){
       return o;
 } 
 
+function generateRGB() {
+  var r = Math.floor(Math.random()*256);
+  var g = Math.floor(Math.random()*256);
+  var b = Math.floor(Math.random()*256);
+  if (r>235 && g>235 && b>235) {
+    return generateRGB();
+  } else {
+    return 'rgb(' + r + ',' + g + ',' + b + ')';
+  }
+}
+
 function showInfo(data, n, boxes, total) {
   setTimeout(function() {
     // Pick box to fill. This is rather inefficient but I'm lazy
@@ -72,17 +87,24 @@ function showInfo(data, n, boxes, total) {
       $('#box' + boxes[randInt]).css('display','none');
       $('#box' + boxes[randInt]).fadeIn(300);
     } else if (data[n].name != null) {
-      $('#box' + boxes[randInt]).css('background-color','#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6));
+
+      $('#box' + boxes[randInt]).css('background-color',generateRGB());
       $('#box' + boxes[randInt]).css('opacity','0.8');
       $('#box' + boxes[randInt]).css('padding-top','2vh');
       $('#box' + boxes[randInt]).css('padding-left','1vw');
       $('#box' + boxes[randInt]).css('padding-right','1vw');
+      $('#box' + boxes[randInt]).css('mix-blend-mode','screen');
 
       var start = data[n].misc.indexOf('author')+7;
       var end = data[n].misc.indexOf('name');
       var author = data[n].misc.slice(start,end-1);
 
-      $('#box' + boxes[randInt]).html('<a href="' + data[n].url + '">' + data[n].name + '</a><div class="author">' + author + '</div>');
+      var title = data[n].name;
+      if (title.length > 40) {
+        title = title.substr(0,39) + "...";
+      }
+
+      $('#box' + boxes[randInt]).html('<a href="' + data[n].url + '">' + title + '</a><div class="author">' + author + '</div>');
       $('#box' + boxes[randInt]).css('display','none');
       $('#box' + boxes[randInt]).fadeIn(300);
     }

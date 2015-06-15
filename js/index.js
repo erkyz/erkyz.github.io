@@ -34,7 +34,7 @@ $('#home').hover(
 
 $('#about').hover(
   function() {
-    $('#navbar').css('background-image','url(img/DSC_0097_5.jpg)');
+    $('#navbar').css('background-image','url(media/img/DSC_0097_5.png)');
     $('#navbar').css('background-position','0% 43%');
     $('.quote').html("But the law of loving others could not be discovered by reason, because it is unreasonable.");
     $('.quote').append('<cite>Leo Tolstoy, Anna Karenina</cite>');
@@ -54,9 +54,8 @@ $('#more').hover(
   function() {
     $('#navbar').css('background-position','0% 80%');
     $('#navbar').css('background-image','url(https://lh3.googleusercontent.com/7PthQl5NDvqgAbfXjn1bofFQiUu4Nj_kxKeJlxvsx7A=w1106-h622-no)');
-    $('.quote').html("Death really did not matter to him but life did, and therefore the sensation he felt when they gave their decision was not a feeling of fear but of nostalgia.");
-    $('.quote').css('font-size','14px');
-    $('.quote').append('<cite> Gabriel Garc&iacute;a M&aacute;rquez, One Hundred Years of Solitude</cite>');
+    $('.quote').html("That's really what history mostly is: masses of people doing ordinary things.");
+    $('.quote').append('<cite>Bill Bryson, At Home</cite>');
   }, original
 );
 

@@ -1,6 +1,6 @@
 $('.glyphicon-question-sign').hover(
   function() {
-    $('body').append('<div id="what-is-this">This is a randomly generated collection of books I\'ve read and photos I\'ve taken. Refresh the page for more!</div>');
+    $('body').append('<div id="what-is-this">This is a randomly generated collection of books I\'ve read, photos I\'ve taken, and a few recordings of piano pieces I\'ve played. Refresh the page for more!</div>');
   },
   function() {
     $('#what-is-this').remove();   
@@ -32,7 +32,7 @@ $(document).ready(function() {
 
   var total = 0;
   for (var i=0; i<8; i++) {
-    $('#ontop').append('<div class="col-md-3 col-xs-3 box" id="box' + total + '"></div>');
+    $('#ontop').append('<div class="col-md-3 col-xs-3 box full" id="box' + total + '"></div>');
     if (Math.random() < 0.66) {
       total++;
     } else {
@@ -53,6 +53,9 @@ $(document).ready(function() {
       Tabletop.init( { key: goodreads_url,
         callback: function(data, tabletop) {
           content = content.concat(data);
+          content.push({music:"Prokofiev"});
+          content.push({music:"Beethoven"});
+          content.push({music:"Liszt"});
           showInfo(shuffle(content),0,boxes,total);
         },
         simpleSheet: true } );
@@ -71,7 +74,7 @@ function generateRGB() {
   var r = Math.floor(Math.random()*256);
   var g = Math.floor(Math.random()*256);
   var b = Math.floor(Math.random()*256);
-  if (r>235 && g>235 && b>235) {
+  if (r>235 && g>215 && b>235) {
     return generateRGB();
   } else {
     return 'rgb(' + r + ',' + g + ',' + b + ')';
@@ -80,14 +83,12 @@ function generateRGB() {
 
 function showInfo(data, n, boxes, total) {
   setTimeout(function() {
-    // Pick box to fill. This is rather inefficient but I'm lazy
+    // Pick box to fill.
     var randInt = Math.floor(Math.random()*boxes.length);
+
     if (data[n].Photos != null) {
       $('#box' + boxes[randInt]).append('<img class="insta" src="' + data[n].Photos + '"></img>');
-      $('#box' + boxes[randInt]).css('display','none');
-      $('#box' + boxes[randInt]).fadeIn(300);
     } else if (data[n].name != null) {
-
       $('#box' + boxes[randInt]).css('background-color',generateRGB());
       $('#box' + boxes[randInt]).css('opacity','0.8');
       $('#box' + boxes[randInt]).css('padding-top','2vh');
@@ -105,15 +106,39 @@ function showInfo(data, n, boxes, total) {
       }
 
       $('#box' + boxes[randInt]).html('<a href="' + data[n].url + '">' + title + '</a><div class="author">' + author + '</div>');
-      $('#box' + boxes[randInt]).css('display','none');
-      $('#box' + boxes[randInt]).fadeIn(300);
+
+    
+    } else if (data[n].music != null) {
+      // $('#box' + boxes[randInt]).css('background-color',generateRGB());
+      $('#box' + boxes[randInt]).css('opacity','0.8');
+      $('#box' + boxes[randInt]).css('padding-top','2vh');
+      $('#box' + boxes[randInt]).css('padding-left','1vw');
+      $('#box' + boxes[randInt]).css('padding-right','1vw');
+      $('#box' + boxes[randInt]).css('mix-blend-mode','screen');
+
+      if (data[n].music == "Beethoven") {
+        $('#box' + boxes[randInt]).html('Allegro con brio, Sonata in C Major Op. 2 No. 3 <div class="author">Ludwig van Beethoven</div><br>');
+        $('#box' + boxes[randInt]).css('font-size','2vh');
+        $('#box' + boxes[randInt]).css('background-image','url(http://lucare.com/immortal/media/composing1.gif)');
+      } else if (data[n].music == "Prokofiev") {
+        $('#box' + boxes[randInt]).html('Allegro ma non troppo, Sonata No. 2 in D minor Op. 14 <div class="author">Sergei Prokofiev</div><br>');
+        $('#box' + boxes[randInt]).css('font-size','2vh');
+        $('#box' + boxes[randInt]).css('background-image','url(http://mediad.publicbroadcasting.net/p/kwit/files/201506/serguei-prokofiev.jpg)');
+      } else if (data[n].music == "Liszt") {
+        $('#box' + boxes[randInt]).html('Dedication after Widmung <div class="author">Franz Liszt/Robert Schumann</div><br>');
+        $('#box' + boxes[randInt]).css('background-image','url(http://southfloridaclassicalreview.com/wp-content/uploads/2010/05/chopin1.png)');
+      }
+
+      $('#box' + boxes[randInt]).append('<audio controls><source src="media/audio/' + data[n].music + '.mp3" type="audio/mp3"> <p>Your user agent does not support the HTML5 Audio element.</p> </audio>');
     }
+
+    $('#box' + boxes[randInt]).css('display','none');
+    $('#box' + boxes[randInt]).fadeIn(300);
     boxes.splice(randInt,1);
 
     if (n < total) {
       showInfo(data,n+1,boxes,total);
-    }
-    else {
+    } else {
       setTimeout(function() {
         $('body').append('<div id="reloadMore">Refresh for more!</div>');
         $('#reloadMore').fadeIn(300);

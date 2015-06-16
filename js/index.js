@@ -45,8 +45,8 @@ $('#thread').hover(
   function() {
     $('#navbar').css('background-position','0% 40%');
     $('#navbar').css('background-image','url(https://lh3.googleusercontent.com/iZJUzv-QSdPPlEakyic_stwOE5GzEp_ecBnc-BRd38M7=w1106-h622-no)');
-    $('.quote').html("Sometimes I can feel my bones straining under the weight of all the lives I'm not living.");
-    $('.quote').append('<cite>Jonathan Safran Foer, Extremely Loud and Incredibly Close</cite>');
+    $('.quote').html("That's really what history mostly is: masses of people doing ordinary things.");
+    $('.quote').append('<cite>Bill Bryson, At Home</cite>');
   }, original
 );
 
@@ -54,8 +54,8 @@ $('#more').hover(
   function() {
     $('#navbar').css('background-position','0% 80%');
     $('#navbar').css('background-image','url(https://lh3.googleusercontent.com/7PthQl5NDvqgAbfXjn1bofFQiUu4Nj_kxKeJlxvsx7A=w1106-h622-no)');
-    $('.quote').html("That's really what history mostly is: masses of people doing ordinary things.");
-    $('.quote').append('<cite>Bill Bryson, At Home</cite>');
+    $('.quote').html("Hatred is the demonstration of a closed mind.");
+    $('.quote').append('<cite>Eric Zhu</cite>');
   }, original
 );
 

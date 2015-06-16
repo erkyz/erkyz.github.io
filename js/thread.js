@@ -1,6 +1,6 @@
 $('.glyphicon-question-sign').hover(
   function() {
-    $('body').append('<div id="what-is-this">This is a randomly generated collection of books I\'ve read, photos I\'ve taken, and a few recordings of piano pieces I\'ve played. Refresh the page for more!</div>');
+    $('body').append('<div id="what-is-this">This is a randomly generated collection of books I\'ve read, photos I\'ve taken, and some of my piano recordings. Refresh for more!</div>');
   },
   function() {
     $('#what-is-this').remove();   
@@ -47,21 +47,27 @@ $(document).ready(function() {
   var boxes = []; for(i=0;i<total;i++) {boxes.push(i)}
   var content = []; 
 
+  // RACE!
   Tabletop.init( { key: insta_url,
     callback: function(data, tabletop) {
-      content = data;
-      Tabletop.init( { key: goodreads_url,
-        callback: function(data, tabletop) {
-          content = content.concat(data);
-          content.push({music:"Prokofiev"});
-          content.push({music:"Beethoven"});
-          content.push({music:"Liszt"});
-          showInfo(shuffle(content),0,boxes,total);
-        },
-        simpleSheet: true } );
-      },
-  simpleSheet: true } );
-
+      content = content.concat(data);
+      if (content.length > data.length) {
+        content.push({music:"Prokofiev"});
+        content.push({music:"Beethoven"});
+        content.push({music:"Liszt"});
+        showInfo(shuffle(content),0,boxes,total);
+      }
+    }, simpleSheet: true } );
+  Tabletop.init( { key: goodreads_url,
+    callback: function(data, tabletop) {
+      content = content.concat(data);
+      if (content.length > data.length) {
+        content.push({music:"Prokofiev"});
+        content.push({music:"Beethoven"});
+        content.push({music:"Liszt"});
+        showInfo(shuffle(content),0,boxes,total);
+      }
+    }, simpleSheet: true } );
 });
 
 // Came up with this in 251! (from StackOverflow because I'm lazy)
@@ -126,6 +132,7 @@ function showInfo(data, n, boxes, total) {
         $('#box' + boxes[randInt]).css('background-image','url(http://mediad.publicbroadcasting.net/p/kwit/files/201506/serguei-prokofiev.jpg)');
       } else if (data[n].music == "Liszt") {
         $('#box' + boxes[randInt]).html('Dedication after Widmung <div class="author">Franz Liszt/Robert Schumann</div><br>');
+        $('#box' + boxes[randInt]).css('font-size','3vh');
         $('#box' + boxes[randInt]).css('background-image','url(http://southfloridaclassicalreview.com/wp-content/uploads/2010/05/chopin1.png)');
       }
 

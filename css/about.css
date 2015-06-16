@@ -22,3 +22,19 @@
 #linkedin, #github, #instagram {
   cursor: pointer;
 }
+#scs {
+  display: inline !important;
+}
+img {
+  height: 10vh;
+  margin-right: 1vw;
+  vertical-align: bottom;
+  border: 0.75px solid black;
+  border-radius: 50%;
+}
+h1 {
+  font-size: 6vh;
+}
+hr {
+  border-top: 1px solid black;
+}

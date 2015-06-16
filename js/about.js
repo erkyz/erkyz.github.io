@@ -7,3 +7,14 @@ $('#github').click(function() {
 $('#instagram').click(function() {
   window.open("https://instagram.com/e_zhu/");
 });
+/*
+$("#mypic").hover(
+  function() {
+    $("#mypic").css("height","40vh");
+    $("#mypic").css("position","absolute");  
+  }, function() {
+    $("#mypic").css("height","8vh");
+    $("#mypic").css("position","initial");  
+  }
+);
+*/

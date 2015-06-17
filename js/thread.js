@@ -1,6 +1,11 @@
+// ISSUES: Google may rate-limit Spreadsheets API (Tabletop.js)
+// Hoepfully Google won't change Spreadsheets API!
+
+var numBigBoxes = 0;
+
 $('.glyphicon-question-sign').hover(
   function() {
-    $('body').append('<div id="what-is-this">This is a randomly generated collection of books I\'ve read, photos I\'ve taken, and some of my piano recordings. Refresh for more!</div>');
+    $('body').append('<div id="what-is-this">This is a randomly generated collection of books I\'ve read, photos I\'ve taken, and some of my piano recordings. Scroll to follow the thread!</div>');
   },
   function() {
     $('#what-is-this').remove();   
@@ -29,20 +34,27 @@ var goodreads_url = 'https://docs.google.com/spreadsheets/d/1ndkMut0Z75GO6XKyDMh
 
 $(document).ready(function() {
   $('#sidebar').hide();
+  $('#ontop').jscroll();
 
   var total = 0;
-  for (var i=0; i<8; i++) {
-    $('#ontop').append('<div class="col-md-3 col-xs-3 box full" id="box' + total + '"></div>');
-    if (Math.random() < 0.66) {
-      total++;
-    } else {
-      var thisBox = total;
-      for (var j=0; j<4; j++) {
-        $('#box' + thisBox).append('<div class="col-md-6 col-xs-6 smallbox" id="box' + total + '"></div>');
+  for (var b=0; b<2; b++) {
+    $('#ontop').append('<div class="col-md-6 col-xs-6 bigbox full" id="bigbox' + b + '"></div>');
+
+    // bigbox-ception is so that smoothdivscroll will work properly
+    for (var i=0; i<4; i++) {
+      $('#bigbox' + b).append('<div class="col-md-3 col-xs-3 box full" id="box' + total + '"></div>');
+      if (Math.random() < 0.66) {
         total++;
+      } else {
+        var thisBox = total;
+        for (var j=0; j<4; j++) {
+          $('#box' + thisBox).append('<div class="col-md-6 col-xs-6 smallbox" id="box' + total + '"></div>');
+          total++;
+        }
+        $('#box' + thisBox).attr('id',"");
       }
-      $('#box' + thisBox).attr('id',"");
     }
+    numBigBoxes++;
   }
   var boxes = []; for(i=0;i<total;i++) {boxes.push(i)}
   var content = []; 
@@ -80,81 +92,138 @@ function generateRGB() {
   var r = Math.floor(Math.random()*256);
   var g = Math.floor(Math.random()*256);
   var b = Math.floor(Math.random()*256);
-  if (r>235 && g>215 && b>235) {
+  if (r>220 || g>215 || b>220) {
     return generateRGB();
   } else {
     return 'rgb(' + r + ',' + g + ',' + b + ')';
   }
 }
 
+function fillBox(obj,n) {
+  if (obj.Photos != null) {
+    $('#box' + n).append('<img class="insta" src="' + obj.Photos + '"></img>');
+  } else if (obj.name != null) {
+    $('#box' + n).css('background-color',generateRGB());
+    $('#box' + n).css('opacity','0.8');
+    $('#box' + n).css('padding-top','2vh');
+    $('#box' + n).css('padding-left','1vw');
+    $('#box' + n).css('padding-right','1vw');
+    $('#box' + n).css('mix-blend-mode','screen');
+
+    var start = obj.misc.indexOf('author')+7;
+    var end = obj.misc.indexOf('name');
+    var author = obj.misc.slice(start,end-1);
+
+    var title = obj.name;
+    if (title.length > 40) {
+      title = title.substr(0,39) + "...";
+    }
+
+    $('#box' + n).html(title + '<div class="author">' + author + '</div>');
+    $('#box' + n).click(function() {window.open(obj.url)});
+    $('#box' + n).css('cursor','pointer');
+  
+  } else if (obj.music != null) {
+    // $('#box' + n).css('background-color',generateRGB());
+    $('#box' + n).css('opacity','0.8');
+    $('#box' + n).css('padding-top','2vh');
+    $('#box' + n).css('padding-left','1vw');
+    $('#box' + n).css('padding-right','1vw');
+    $('#box' + n).css('mix-blend-mode','screen');
+
+    if (obj.music == "Beethoven") {
+      $('#box' + n).html('Allegro con brio, Sonata in C Major Op. 2 No. 3 <div class="author">Ludwig van Beethoven</div><br>');
+      $('#box' + n).css('font-size','2vh');
+      $('#box' + n).css('background-image','url(http://lucare.com/immortal/media/composing1.gif)');
+    } else if (obj.music == "Prokofiev") {
+      $('#box' + n).html('Allegro ma non troppo, Sonata No. 2 in D minor Op. 14 <div class="author">Sergei Prokofiev</div><br>');
+      $('#box' + n).css('font-size','2vh');
+      $('#box' + n).css('background-image','url(http://mediad.publicbroadcasting.net/p/kwit/files/201506/serguei-prokofiev.jpg)');
+    } else if (obj.music == "Liszt") {
+      $('#box' + n).html('Dedication after Widmung <div class="author">Franz Liszt/Robert Schumann</div><br>');
+      $('#box' + n).css('font-size','2vh');
+      $('#box' + n).css('background-image','url(http://southfloridaclassicalreview.com/wp-content/uploads/2010/05/chopin1.png)');
+    }
+
+    $('#box' + n).append('<audio controls><source src="media/audio/' + obj.music + '.mp3" type="audio/mp3"> <p>Your user agent does not support the HTML5 Audio element.</p> </audio>');
+  }
+
+  $('#box' + n).css('display','none');
+  $('#box' + n).fadeIn(300);
+}
+
 function showInfo(data, n, boxes, total) {
+
   setTimeout(function() {
     // Pick box to fill.
     var randInt = Math.floor(Math.random()*boxes.length);
 
-    if (data[n].Photos != null) {
-      $('#box' + boxes[randInt]).append('<img class="insta" src="' + data[n].Photos + '"></img>');
-    } else if (data[n].name != null) {
-      $('#box' + boxes[randInt]).css('background-color',generateRGB());
-      $('#box' + boxes[randInt]).css('opacity','0.8');
-      $('#box' + boxes[randInt]).css('padding-top','2vh');
-      $('#box' + boxes[randInt]).css('padding-left','1vw');
-      $('#box' + boxes[randInt]).css('padding-right','1vw');
-      $('#box' + boxes[randInt]).css('mix-blend-mode','screen');
-
-      var start = data[n].misc.indexOf('author')+7;
-      var end = data[n].misc.indexOf('name');
-      var author = data[n].misc.slice(start,end-1);
-
-      var title = data[n].name;
-      if (title.length > 40) {
-        title = title.substr(0,39) + "...";
-      }
-
-      $('#box' + boxes[randInt]).html('<a href="' + data[n].url + '">' + title + '</a><div class="author">' + author + '</div>');
-
-    
-    } else if (data[n].music != null) {
-      // $('#box' + boxes[randInt]).css('background-color',generateRGB());
-      $('#box' + boxes[randInt]).css('opacity','0.8');
-      $('#box' + boxes[randInt]).css('padding-top','2vh');
-      $('#box' + boxes[randInt]).css('padding-left','1vw');
-      $('#box' + boxes[randInt]).css('padding-right','1vw');
-      $('#box' + boxes[randInt]).css('mix-blend-mode','screen');
-
-      if (data[n].music == "Beethoven") {
-        $('#box' + boxes[randInt]).html('Allegro con brio, Sonata in C Major Op. 2 No. 3 <div class="author">Ludwig van Beethoven</div><br>');
-        $('#box' + boxes[randInt]).css('font-size','2vh');
-        $('#box' + boxes[randInt]).css('background-image','url(http://lucare.com/immortal/media/composing1.gif)');
-      } else if (data[n].music == "Prokofiev") {
-        $('#box' + boxes[randInt]).html('Allegro ma non troppo, Sonata No. 2 in D minor Op. 14 <div class="author">Sergei Prokofiev</div><br>');
-        $('#box' + boxes[randInt]).css('font-size','2vh');
-        $('#box' + boxes[randInt]).css('background-image','url(http://mediad.publicbroadcasting.net/p/kwit/files/201506/serguei-prokofiev.jpg)');
-      } else if (data[n].music == "Liszt") {
-        $('#box' + boxes[randInt]).html('Dedication after Widmung <div class="author">Franz Liszt/Robert Schumann</div><br>');
-        $('#box' + boxes[randInt]).css('font-size','3vh');
-        $('#box' + boxes[randInt]).css('background-image','url(http://southfloridaclassicalreview.com/wp-content/uploads/2010/05/chopin1.png)');
-      }
-
-      $('#box' + boxes[randInt]).append('<audio controls><source src="media/audio/' + data[n].music + '.mp3" type="audio/mp3"> <p>Your user agent does not support the HTML5 Audio element.</p> </audio>');
-    }
-
-    $('#box' + boxes[randInt]).css('display','none');
-    $('#box' + boxes[randInt]).fadeIn(300);
+    fillBox(data[n], boxes[randInt]);
     boxes.splice(randInt,1);
 
     if (n < total) {
       showInfo(data,n+1,boxes,total);
     } else {
-      setTimeout(function() {
-        $('body').append('<div id="reloadMore">Refresh for more!</div>');
-        $('#reloadMore').fadeIn(300);
+      if (numBigBoxes == 2) {
+        var rest = document.createElement('div');
+        rest.setAttribute('id','rest');
+        rest.style.width = "900vw";
+        $('#ontop').append(rest);
+        $('#ontop').smoothDivScroll({});
+        $('.scrollingHotSpotLeft').append('<span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>');
+        $('.scrollingHotSpotRight').append('<span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>');
+      }
 
-        setTimeout(function() {
-          $('#reloadMore').fadeOut(3000);
-        }, 2000);
-      }, 2500);
-     }
+      var rest = document.createElement('div');
+      rest.setAttribute('id','rest' + numBigBoxes);
+      $('#rest').append(rest);
+
+      $(document).ready(function() {
+        $('#rest' + numBigBoxes).css('width','100vw');
+        $('#rest' + numBigBoxes).css('left',((numBigBoxes*100)/2).toString() + 'vw');
+        $('#rest' + numBigBoxes).css('height','100%');
+        $('#rest' + numBigBoxes).css('position','absolute');
+
+        console.log (data.length-n);
+        if (data.length-n < 10) {
+          $('#rest' + numBigBoxes).text('To be continued...');
+          $('#rest' + numBigBoxes).css('font-size', '20vh');
+          $('#rest' + numBigBoxes).css('padding-left', '4vw');
+          $('#rest' + numBigBoxes).css('padding-top', '60vh');
+          $('#rest' + numBigBoxes).css('line-height', '40vh');
+          $('#rest' + numBigBoxes).css('color', 'white');
+          $('#rest' + numBigBoxes).css('font-style', 'oblique');
+          return;
+        }
+
+        // Doing it again - may want to modularize
+        var restStart = total;
+        for (var b = numBigBoxes; b < numBigBoxes+2; b++) {
+          $('#rest' + numBigBoxes).append('<div class="col-md-6 col-xs-6 bigbox full" id="bigbox' + b + '"></div>');
+          // bigbox-ception is so that smoothdivscroll will work properly
+          for (var i=0; i<4; i++) {
+            $('#bigbox' + b).append('<div class="col-md-3 col-xs-3 box full" id="box' + total + '"></div>');
+            if (Math.random() < 0.66) {
+              total++;
+            } else {
+              var thisBox = total;
+              for (var j=0; j<4; j++) {
+                $('#box' + thisBox).append('<div class="col-md-6 col-xs-6 smallbox" id="box' + total + '"></div>');
+                total++;
+              }
+              $('#box' + thisBox).attr('id',"");
+            }
+          }
+        }
+        numBigBoxes += 2;
+        
+        for(i=restStart;i<total;i++) {boxes.push(i)}
+        var randInt = Math.floor(Math.random()*boxes.length);
+        fillBox(data[n], boxes[randInt]);
+        boxes.splice(randInt,1);
+        showInfo(data,n+1,boxes,total); 
+      });
+    }
   }, 250);
 }
 

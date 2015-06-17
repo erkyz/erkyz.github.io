@@ -1,0 +1,28 @@
+{
+  "name": "smooth-scroll",
+  "main": [
+    "js/jquery.smoothdivscroll-1.3-min.js",
+    "css/smoothDivScroll.css"
+  ],
+  "description": "Smooth DIV Scroll",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/markwylde/Smooth-Div-Scroll.git"
+  },
+  "dependencies": {
+    "jquery-ui": "=1.10.4",
+    "jquery.kinetic": "=1.8.2",
+    "jquery-mousewheel": "=3.1.4"
+  },
+  "homepage": "https://github.com/markwylde/Smooth-Div-Scroll",
+  "_release": "9dea1f80a8",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "9dea1f80a853332db9a8a9400d0163f6bb4c3394"
+  },
+  "_source": "git://github.com/markwylde/Smooth-Div-Scroll.git",
+  "_target": "*",
+  "_originalSource": "smooth-div-scroll",
+  "_direct": true
+}

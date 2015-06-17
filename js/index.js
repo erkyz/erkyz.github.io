@@ -46,7 +46,7 @@ $('#thread').hover(
     $('#navbar').css('background-position','0% 40%');
     $('#navbar').css('background-image','url(https://lh3.googleusercontent.com/iZJUzv-QSdPPlEakyic_stwOE5GzEp_ecBnc-BRd38M7=w1106-h622-no)');
     $('.quote').html("That's really what history mostly is: masses of people doing ordinary things.");
-    $('.quote').append('<cite>Bill Bryson, At Home</cite>');
+    $('.quote').append('<cite>Bill Bryson, At Home: A Short History of Private Life</cite>');
   }, original
 );
 
@@ -55,7 +55,7 @@ $('#more').hover(
     $('#navbar').css('background-position','0% 80%');
     $('#navbar').css('background-image','url(https://lh3.googleusercontent.com/7PthQl5NDvqgAbfXjn1bofFQiUu4Nj_kxKeJlxvsx7A=w1106-h622-no)');
     $('.quote').html("Hatred is the demonstration of a closed mind.");
-    $('.quote').append('<cite>Eric Zhu</cite>');
+    $('.quote').append('<cite>Me</cite>');
   }, original
 );
 

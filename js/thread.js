@@ -2,6 +2,7 @@
 // Hoepfully Google won't change Spreadsheets API!
 
 var numBigBoxes = 0;
+var total = 0;
 
 $('.glyphicon-question-sign').hover(
   function() {
@@ -38,27 +39,9 @@ $(document).ready(function() {
   $('#sidebar').hide();
   $('#ontop').jscroll();
 
-  var total = 0;
-  for (var b=0; b<2; b++) {
-    $('#ontop').append('<div class="col-md-6 col-xs-6 bigbox full" id="bigbox' + b + '"></div>');
-
-    // bigbox-ception is so that smoothdivscroll will work properly
-    for (var i=0; i<4; i++) {
-      $('#bigbox' + b).append('<div class="col-md-3 col-xs-3 box full" id="box' + total + '"></div>');
-      if (Math.random() < 0.66) {
-        total++;
-      } else {
-        var thisBox = total;
-        for (var j=0; j<4; j++) {
-          $('#box' + thisBox).append('<div class="col-md-6 col-xs-6 smallbox" id="box' + total + '"></div>');
-          total++;
-        }
-        $('#box' + thisBox).attr('id',"");
-      }
-    }
-    numBigBoxes++;
-  }
+  makeBoxes(0,2,"#ontop");
   var boxes = []; for(i=0;i<total;i++) {boxes.push(i)}
+  console.log(boxes);
   var content = []; 
 
   // RACE!
@@ -79,7 +62,7 @@ $(document).ready(function() {
         content.push({music:"Prokofiev"});
         content.push({music:"Beethoven"});
         content.push({music:"Liszt"});
-        showInfo(shuffle(content),0,boxes,total);
+        showInfo(shuffle(content),0,boxes);
       }
     }, simpleSheet: true } );
 });
@@ -99,6 +82,29 @@ function generateRGB() {
   } else {
     return 'rgb(' + r + ',' + g + ',' + b + ')';
   }
+}
+
+function makeBoxes(start,end,append) {
+  for (var b=start; b<end; b++) {
+    $(append).append('<div class="col-md-6 col-xs-6 bigbox full" id="bigbox' + b + '"></div>');
+
+    // bigbox-ception is so that smoothdivscroll will work properly
+    for (var i=0; i<4; i++) {
+      $('#bigbox' + b).append('<div class="col-md-3 col-xs-3 box full" id="box' + total + '"></div>');
+      if (Math.random() < 0.66) {
+        total++;
+      } else {
+        var thisBox = total;
+        for (var j=0; j<4; j++) {
+          $('#box' + thisBox).append('<div class="col-md-6 col-xs-6 smallbox" id="box' + total + '"></div>');
+          total++;
+        }
+        $('#box' + thisBox).attr('id',"");
+      }
+    }
+    console.log (total);
+  }
+  numBigBoxes+=2;
 }
 
 function fillBox(obj,n) {
@@ -150,14 +156,15 @@ function fillBox(obj,n) {
     $('#box' + n).append('<audio controls><source src="media/audio/' + obj.music + '.mp3" type="audio/mp3"> <p>Your user agent does not support the HTML5 Audio element.</p> </audio>');
   }
 
+  $('#box' + n).css('border','1px solid white');
   $('#box' + n).css('display','none');
   $('#box' + n).fadeIn(500);
 }
 
-function showInfo(data, n, boxes, total) {
+function showInfo(data, n, boxes) {
   setTimeout(function() {
     console.log (data.length-n);
-    if (data.length-n < boxes.length) {
+    if (data.length-n <= 0) {
       console.log(numBigBoxes);
       $('#rest' + (numBigBoxes-2).toString()).html("");
       $('#rest' + (numBigBoxes-2).toString()).text('To be continued...');
@@ -172,12 +179,13 @@ function showInfo(data, n, boxes, total) {
 
     // Pick box to fill.
     var randInt = Math.floor(Math.random()*boxes.length);
-
+    console.log(boxes);
     fillBox(data[n], boxes[randInt]);
     boxes.splice(randInt,1);
 
     if (n < total) {
-      showInfo(data,n+1,boxes,total);
+      showInfo(data,n+1,boxes);
+      console.log(numBigBoxes);
     } else {
       if (numBigBoxes == 2) {
         var rest = document.createElement('div');
@@ -199,33 +207,19 @@ function showInfo(data, n, boxes, total) {
         $('#rest' + numBigBoxes).css('height','100%');
         $('#rest' + numBigBoxes).css('position','absolute');
 
-        // Doing it again - may want to modularize
         var restStart = total;
-        for (var b = numBigBoxes; b < numBigBoxes+2; b++) {
-          $('#rest' + numBigBoxes).append('<div class="col-md-6 col-xs-6 bigbox full" id="bigbox' + b + '"></div>');
-          // bigbox-ception is so that smoothdivscroll will work properly
-          for (var i=0; i<4; i++) {
-            $('#bigbox' + b).append('<div class="col-md-3 col-xs-3 box full" id="box' + total + '"></div>');
-            if (Math.random() < 0.66) {
-              total++;
-            } else {
-              var thisBox = total;
-              for (var j=0; j<4; j++) {
-                $('#box' + thisBox).append('<div class="col-md-6 col-xs-6 smallbox" id="box' + total + '"></div>');
-                total++;
-              }
-              $('#box' + thisBox).attr('id',"");
-            }
-          }
-        }
-        numBigBoxes += 2;
-        
-        for(i=restStart;i<total;i++) {boxes.push(i)}
-        var randInt = Math.floor(Math.random()*boxes.length);
-        fillBox(data[n], boxes[randInt]);
-        console.log(boxes);
-        boxes.splice(randInt,1);
-        showInfo(data,n+1,boxes,total); 
+        console.log("bb " + numBigBoxes);
+        makeBoxes(numBigBoxes, numBigBoxes+2, "#rest" + numBigBoxes);
+       
+        $(document).ready(function() { 
+          for(i=restStart;i<total;i++) {boxes.push(i)}
+          var randInt = Math.floor(Math.random()*boxes.length);
+          console.log($('box' + boxes[randInt]));
+          fillBox(data[n], boxes[randInt]);
+          console.log(boxes);
+          boxes.splice(randInt,1);
+          showInfo(data,n+1,boxes);
+        }); 
       });
     }
   }, 250);

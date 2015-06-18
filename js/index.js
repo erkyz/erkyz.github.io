@@ -52,8 +52,8 @@ $('#thread').hover(
 
 $('#more').hover(
   function() {
-    $('#navbar').css('background-position','0% 80%');
-    $('#navbar').css('background-image','url(https://lh3.googleusercontent.com/7PthQl5NDvqgAbfXjn1bofFQiUu4Nj_kxKeJlxvsx7A=w1106-h622-no)');
+    $('#navbar').css('background-position','0% 30%');
+    $('#navbar').css('background-image','url(https://lh3.googleusercontent.com/7a92QXKrS7JuA7IYXfE25fOmVyyz8ejN0UDMLdbYSa0s=w1440-h487-no)');
     $('.quote').html("Hatred is the demonstration of a closed mind.");
     $('.quote').append('<cite>Me</cite>');
   }, original

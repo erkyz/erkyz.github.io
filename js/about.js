@@ -7,14 +7,18 @@ $('#github').click(function() {
 $('#instagram').click(function() {
   window.open("https://instagram.com/e_zhu/");
 });
-/*
-$("#mypic").hover(
+
+$("#thread").hover(
   function() {
-    $("#mypic").css("height","40vh");
-    $("#mypic").css("position","absolute");  
+    $("#name").html("Je m'appelle &Eacute;ric");
   }, function() {
-    $("#mypic").css("height","8vh");
-    $("#mypic").css("position","initial");  
+    $("#name").text("I'm Eric");
   }
 );
-*/
+$("#more").hover(
+  function() {
+    $("#name").html("&#25105;&#21483; Eric");
+  }, function() {
+    $("#name").text("I'm Eric");
+  }
+);

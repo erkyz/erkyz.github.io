@@ -24,11 +24,14 @@ body {
 }
 #ontop {
   position: relative;
-
+}
+#sidebar {
+  z-index: 1000000;
+  position: absolute;
+  top: 0;
 }
 
 .bigbox {
-  display: inline-block;
   padding: 0;
   overflow: hidden;
   height: 100%;

@@ -1,6 +1,6 @@
 #info {
-  font-size: 2.5vh;
-  line-height: 3.5vh;
+  font-size: 3vh;
+  line-height: 4vh;
   padding-left: 4vw;
   padding-right: 3vw;
   padding-top: 3vh;
@@ -10,13 +10,16 @@
   margin-bottom: 1vh;
   margin-left: 1vw;
 }
+#sidebar {
+  left: 75vw;
+}
 .main {
   padding-top: 2vh;
 }
 .side {
   border: none !important;
-  padding-top: 4vh;
-  line-height: 3vh !important;
+  padding-top: 3vh;
+  line-height: 2.5vh !important;
   cursor: default !important;
 }
 #linkedin, #github, #instagram {
@@ -38,4 +41,16 @@ h1 {
 hr {
   border-top: 1px solid black;
 }
-
+#name {
+  display: inline-block;
+}
+#mypic:hover {
+  width: auto;
+  height: 90vh;
+  -webkit-transition-property: height, width;
+  -webkit-transition-duration: 5s;
+}
+#mypic {
+  -webkit-transition-property: height, width;
+  -webkit-transition-duration: 5s;
+}

@@ -1,0 +1,13 @@
+.snipImg {
+  height: 100%;
+  display: inline-block;
+  float: left;
+}
+.snippet {
+  width: 100%;
+  height: 23vh;
+  margin-top: 2vh;
+}
+.scrollingHotSpotLeft, .scrollingHotSpotRight {
+  height: 25vh !important;
+}

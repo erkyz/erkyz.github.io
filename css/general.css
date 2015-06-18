@@ -67,6 +67,7 @@ body {
   height: 100%;
   padding-top: 6vh;
   color: black !important;
+  position: absolute;
 }
 #sidebar li {
   line-height: 8vh;

@@ -14,7 +14,8 @@ $('.glyphicon-question-sign').hover(
 $('.glyphicon-menu-hamburger').hover(
   function() {
     $('#sidebar').show();
-    $('.glyphicon').hide();
+    $('.info').hide();
+    $('.scrollingHotSpotRight').hide();
   },
   function() {
     $('#sidebar').hover(
@@ -22,7 +23,8 @@ $('.glyphicon-menu-hamburger').hover(
         $('#sidebar').show();
       },
       function() {
-        $('.glyphicon').show();
+        $('.info').show();
+        $('.scrollingHotSpotRight').show();
         $('#sidebar').hide();
       }
     );
@@ -149,12 +151,25 @@ function fillBox(obj,n) {
   }
 
   $('#box' + n).css('display','none');
-  $('#box' + n).fadeIn(300);
+  $('#box' + n).fadeIn(500);
 }
 
 function showInfo(data, n, boxes, total) {
-
   setTimeout(function() {
+    console.log (data.length-n);
+    if (data.length-n < boxes.length) {
+      console.log(numBigBoxes);
+      $('#rest' + (numBigBoxes-2).toString()).html("");
+      $('#rest' + (numBigBoxes-2).toString()).text('To be continued...');
+      $('#rest' + (numBigBoxes-2).toString()).css('font-size', '20vh');
+      $('#rest' + (numBigBoxes-2).toString()).css('padding-left', '4vw');
+      $('#rest' + (numBigBoxes-2).toString()).css('padding-top', '60vh');
+      $('#rest' + (numBigBoxes-2).toString()).css('line-height', '40vh');
+      $('#rest' + (numBigBoxes-2).toString()).css('color', 'white');
+      $('#rest' + (numBigBoxes-2).toString()).css('font-style', 'oblique');
+      return;
+    }
+
     // Pick box to fill.
     var randInt = Math.floor(Math.random()*boxes.length);
 
@@ -184,18 +199,6 @@ function showInfo(data, n, boxes, total) {
         $('#rest' + numBigBoxes).css('height','100%');
         $('#rest' + numBigBoxes).css('position','absolute');
 
-        console.log (data.length-n);
-        if (data.length-n < 10) {
-          $('#rest' + numBigBoxes).text('To be continued...');
-          $('#rest' + numBigBoxes).css('font-size', '20vh');
-          $('#rest' + numBigBoxes).css('padding-left', '4vw');
-          $('#rest' + numBigBoxes).css('padding-top', '60vh');
-          $('#rest' + numBigBoxes).css('line-height', '40vh');
-          $('#rest' + numBigBoxes).css('color', 'white');
-          $('#rest' + numBigBoxes).css('font-style', 'oblique');
-          return;
-        }
-
         // Doing it again - may want to modularize
         var restStart = total;
         for (var b = numBigBoxes; b < numBigBoxes+2; b++) {
@@ -220,6 +223,7 @@ function showInfo(data, n, boxes, total) {
         for(i=restStart;i<total;i++) {boxes.push(i)}
         var randInt = Math.floor(Math.random()*boxes.length);
         fillBox(data[n], boxes[randInt]);
+        console.log(boxes);
         boxes.splice(randInt,1);
         showInfo(data,n+1,boxes,total); 
       });

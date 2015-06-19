@@ -158,6 +158,14 @@ function fillBox(obj,n) {
 
   $('#box' + n).css('border','1px solid white');
   $('#box' + n).css('display','none');
+  $('#box' + n).hover(
+    function() {
+      $('#box' + n).css('box-shadow','inset 5px 8px 8px rgba(0,0,0,0.15)');
+    }, function() {
+      $('#box' + n).css('box-shadow','none');
+    }
+  );
+
   $('#box' + n).fadeIn(500);
 }
 

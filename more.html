@@ -1,5 +1,5 @@
 <html>
-<title>About - Eric Zhu</title>
+<title>Snippets - Eric Zhu</title>
 <head>
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
@@ -8,40 +8,129 @@
   <link rel="icon" type="image/png" href="media/img/e.png">
   <script src="bower_components/jquery/dist/jquery.min.js"></script>
   <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" href="circleplayer/not.the.skin.css">
+  <link rel="stylesheet" href="circleplayer/circle.player.css">
+  <script type="text/javascript" src="circleplayer/jquery.transform.js"></script>
+  <script type="text/javascript" src="circleplayer/jquery.grab.js"></script>
+  <script src="bower_components/jplayer/dist/jplayer/jquery.jplayer.min.js"></script>
+  <script type="text/javascript" src="circleplayer/mod.csstransforms.min.js"></script>
+  <script type="text/javascript" src="circleplayer/circle.player.js"></script>
+
   <script src="bower_components/jscroll/jquery.jscroll.min.js"></script>
   <script src="bower_components/smooth-div-scroll/js/jquery-ui-1.10.3.custom.min.js"></script>
   <script src="bower_components/smooth-div-scroll/js/jquery.mousewheel.min.js"></script>
   <script src="bower_components/smooth-div-scroll/js/jquery.kinetic.min.js"></script>
   <link rel="stylesheet" type="text/css" href="bower_components/smooth-div-scroll/css/smoothDivScroll.css"></script>
   <script src="bower_components/smooth-div-scroll/js/jquery.smoothdivscroll-1.3-min.js"></script>
-
   <script src="js/general.js"></script>
 </head>
 
 <body class="full">
-  <div id="ontop">
-    <div class="col-md-9 col-xs-9">
-      <div class="snippet">
-        <img class="snipImg" src="https://lh3.googleusercontent.com/4FOj13yym-y9dbzKste1EYmZ8taVSpudLSwO2PrXyeut=w1114-h450-no">
-        <img class="snipImg" src="https://lh3.googleusercontent.com/COCOGSS7HQHaWgH-qqU3czg4YYAOVEIvJCMbXf_4AcjR=w457-h180-no">
-        <img class="snipImg" src="https://lh3.googleusercontent.com/21yhs4EvoGZ3KsXoAb-ZsXpTEXjjA3rJOPbUiyyjYT7S=w470-h185-no">
-        <img class="snipImg" src="https://lh3.googleusercontent.com/COCOGSS7HQHaWgH-qqU3czg4YYAOVEIvJCMbXf_4AcjR=w450-h177-no">
+  <div id="jplayer" class="cp-jplayer"></div>
+  <div id="jplayer2" class="cp-jplayer"></div>
+  <div id="jplayer3" class="cp-jplayer"></div>
+  <div id="jplayer4" class="cp-jplayer"></div>
+
+  <div id="ontop" class="prototype-wrapper">
+
+    
+    <div class="col-md-9 col-xs-9 content">
+      <br>
+      From "Hannah Hunt", Vampire Weekend:
+      <div id="container1" class="cp-container">
+        <div class="cp-progress-holder"> <!-- .cp-gt50 only needed when progress is > than 50% -->
+          <div class="cp-progress-1"></div>
+          <div class="cp-progress-2"></div>
+        </div>
+        <div class="cp-circle-control"></div>
+        <ul class="cp-controls">
+          <li><a href="#" class="cp-play" tabindex="1">play</a></li>
+          <li><a href="#" class="cp-pause" style="display:none;" tabindex="1">pause</a></li> <!-- Needs the inline style here, or jQuery.show() uses display:inline instead of display:block -->
+        </ul>
       </div>
 
       <div class="snippet">
-        <img class="snipImg" src="https://lh3.googleusercontent.com/iKEFl86YfrTA4GFFIN0PJ0gvCTpdvHP0Nl9osVRKgdtM=w1500-h218-no">
-        <img class="snipImg" src="https://lh3.googleusercontent.com/h47uX9po5E3Wo035bLz223HNNTnbSWWikWhaK5iBhSIo=w1499-h261-no">
+        <img src="https://lh3.googleusercontent.com/4FOj13yym-y9dbzKste1EYmZ8taVSpudLSwO2PrXyeut=w1114-h450-no">
+        <img src="https://lh3.googleusercontent.com/t7FxiNtHlIsIhaMPd5SW1KpYmM1DnWVIYK5pZuPpST-u=w469-h185-no">
+        <img src="https://lh3.googleusercontent.com/21yhs4EvoGZ3KsXoAb-ZsXpTEXjjA3rJOPbUiyyjYT7S=w470-h185-no">
+        <img src="https://lh3.googleusercontent.com/COCOGSS7HQHaWgH-qqU3czg4YYAOVEIvJCMbXf_4AcjR=w457-h180-no">
       </div>
 
+      From Adagio un poco mosso, Piano Concerto No. 5 in E-flat major, Op. 73 (Emperor), Beethoven:
+      <div id="container2" class="cp-container">
+        <div class="cp-progress-holder"> <!-- .cp-gt50 only needed when progress is > than 50% -->
+          <div class="cp-progress-1"></div>
+          <div class="cp-progress-2"></div>
+        </div>
+        <div class="cp-circle-control"></div>
+        <ul class="cp-controls">
+          <li><a href="#" class="cp-play" tabindex="1">play</a></li>
+          <li><a href="#" class="cp-pause" style="display:none;" tabindex="1">pause</a></li> <!-- Needs the inline style here, or jQuery.show() uses display:inline instead of display:block -->
+        </ul>
+      </div>
+
+      <div class="snippet">
+        <img src="https://lh3.googleusercontent.com/iKEFl86YfrTA4GFFIN0PJ0gvCTpdvHP0Nl9osVRKgdtM=w1500-h218-no">
+        <img src="https://lh3.googleusercontent.com/h47uX9po5E3Wo035bLz223HNNTnbSWWikWhaK5iBhSIo=w1499-h261-no">
+        <img src="https://lh3.googleusercontent.com/jLdsM8S-8rL50tD_69xTM7gTBq7jfu-EbHRnQDckY7SE=w682-h245-no">
+      </div>
+
+      From Allegro ma non troppo, Sonata No. 2 in D minor Op. 14, Prokofiev:
+      <div id="container3" class="cp-container">
+        <div class="cp-progress-holder"> <!-- .cp-gt50 only needed when progress is > than 50% -->
+          <div class="cp-progress-1"></div>
+          <div class="cp-progress-2"></div>
+        </div>
+        <div class="cp-circle-control"></div>
+        <ul class="cp-controls">
+          <li><a href="#" class="cp-play" tabindex="1">play</a></li>
+          <li><a href="#" class="cp-pause" style="display:none;" tabindex="1">pause</a></li> <!-- Needs the inline style here, or jQuery.show() uses display:inline instead of display:block -->
+        </ul>
+      </div>
+
+      <div class="snippet">
+        <img src="https://lh3.googleusercontent.com/0wW4OrDVrXGmYSBlUGkODc0vtLSWeD-NWnqm8BNMoyvM=w1440-h338-no">
+        <img src="https://lh3.googleusercontent.com/NDHOLYaCzRmcXpYJAlz4sXA6HPZw_caUcALrUIlHoFxY=w1440-h378-no">
+        <img src="https://lh3.googleusercontent.com/hMLaRhVlbjaSLI8vxiiH4kYnFtZklvv11cRxLrp0578a=w1440-h375-no">
+        <img src="https://lh3.googleusercontent.com/iURp2lEgo7ndCI2ZeWgyzllECF2nSVyVvaJv-B2szxPk=w1440-h380-no">
+      </div>
+
+      From "Mountain Sound", Of Monsters and Men:
+      <div id="container4" class="cp-container">
+        <div class="cp-progress-holder"> <!-- .cp-gt50 only needed when progress is > than 50% -->
+          <div class="cp-progress-1"></div>
+          <div class="cp-progress-2"></div>
+        </div>
+        <div class="cp-circle-control"></div>
+        <ul class="cp-controls">
+          <li><a href="#" class="cp-play" tabindex="1">play</a></li>
+          <li><a href="#" class="cp-pause" style="display:none;" tabindex="1">pause</a></li> <!-- Needs the inline style here, or jQuery.show() uses display:inline instead of display:block -->
+        </ul>
+      </div>
+
+      <div class="snippet">
+        <img src="https://lh3.googleusercontent.com/McKJKw3O_flu4llF_ovPuXS-46pyCVnERvqzWmiMdFfE=w1440-h267-no">
+        <img src="https://lh3.googleusercontent.com/kBEqghUJMlPMFGV9kn_3aW0_lzM8PaNFxJtHBBuDSOB8=w1440-h235-no">
+        <img src="https://lh3.googleusercontent.com/i9E06qmqEOfbKUOlw8pdkj2ACRGBuKPn7L1Aiim817s9=w1440-h244-no">
+        <img src="https://lh3.googleusercontent.com/issr1c6KMglvIXGRaUUOQtJfYG8Jisf4ylpcwKOTp5Qm=w1440-h254-no">
+      </div>
     </div>
+    
+    <div id="filler"></div>
 
-    <div class="col-md-3 col-xs-3 col-md-offset-9 col-xs-offset-9" id="sidebar">
+    <div class="col-md-3 col-xs-3" id="sidebar">
       <ul class="nav">
         <li><a href="index.html" id="home">Home</a></li>
         <li><a href="about.html" id="about">About</a></li>
         <li><a href="thread.html" id="thread">Thread</a></li>
-        <li class="active"><a href="#" id="more">Awe</a></li>
+        <li class="active"><a href="#" id="more">Snippets</a></li>
       </ul>
+
+      <div id="spattering">
+        <i>A spattering of snippets of music that have inspired and moved me"</i>
+      </div>
+
     </div>
 
   </div>

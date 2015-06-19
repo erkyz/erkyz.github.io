@@ -61,12 +61,6 @@ body {
   font-size: 5vh;
   width: 25vw;
 }
-.box:hover {
-  box-shadow: inset 5px 8px 8px rgba(0,0,0,0.15)
-}
-.smallbox:hover {
-  box-shadow: inset 3px 5px 5px rgba(0,0,0,0.15)
-}
 .box .author {
   font-size: 4vh;
   font-style: normal; 
@@ -80,6 +74,8 @@ body {
 }
 .insta {
   height: 100%;
+  margin-right: auto;
+  margin-left: auto;
   vertical-align: middle;
   display: inline-block;
 }

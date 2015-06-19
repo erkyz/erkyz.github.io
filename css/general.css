@@ -85,3 +85,6 @@ body {
   text-decoration: none;
   display: block;
 }
+#sidebar li>a:hover {
+  box-shadow: inset 3px 5px 5px rgba(0,0,0,0.05)
+}

@@ -4,45 +4,78 @@
 var numBigBoxes = 0;
 var total = 0;
 
-$('.glyphicon-question-sign').hover(
-  function() {
-    $('body').append('<div id="what-is-this">This is a randomly generated collection of books I\'ve read, photos I\'ve taken, and some of my piano recordings. Scroll to follow the thread!</div>');
-  },
-  function() {
-    $('#what-is-this').remove();   
-  }
-);
-$('.glyphicon-menu-hamburger').hover(
-  function() {
-    $('#sidebar').show();
-    $('.info').hide();
-    $('.scrollingHotSpotRight').hide();
-  },
-  function() {
-    $('#sidebar').hover(
-      function() {
-        $('#sidebar').show();
-      },
-      function() {
-        $('.info').show();
-        $('.scrollingHotSpotRight').show();
-        $('#sidebar').hide();
-      }
-    );
-  }
-);
+
 
 var insta_url = "https://docs.google.com/spreadsheets/d/1bdLCDybS8QrSY2atgRE3QldTEokHQyCDA2sG3x3vjqc/pubhtml";
 var goodreads_url = 'https://docs.google.com/spreadsheets/d/1ndkMut0Z75GO6XKyDMhMyDdOzBoLTkJ0gEhviKUP9ro/pubhtml';
 
 $(document).ready(function() {
   if (window.orientation == 0) {
-    alert("This website is designed to be viewed in landscape mode.");
+    alert("This website is designed to be viewed in landscape mode. Please change your device's orientation to view content.");
     $('body').hide();
     window.addEventListener("orientationchange",function() {
       if (window.orientation != 0) $('body').show();
     });
   }
+  window.addEventListener("orientationchange",function() {
+    alert("This website is designed to be viewed in landscape mode. Please change your device's orientation to view content.");
+    $('body').hide();
+    window.addEventListener("orientationchange",function() {
+      if (window.orientation != 0) $('body').show();
+    });
+  });
+
+  $('.glyphicon-question-sign').hover(
+    function() {
+      $('body').append('<div id="what-is-this">This is a randomly generated collection of books I\'ve read, photos I\'ve taken, and some of my piano recordings. Scroll to follow the thread!</div>');
+    },
+    function() {
+      $('#what-is-this').remove();   
+    }
+  );
+  $('.glyphicon-menu-hamburger').hover(
+    function() {
+      $('#sidebar').show();
+      $('.info').hide();
+      $('.scrollingHotSpotRight').hide();
+    },
+    function() {
+      $('#sidebar').hover(
+        function() {
+          $('#sidebar').show();
+        },
+        function() {
+          $('.info').show();
+          $('.scrollingHotSpotRight').show();
+          $('#sidebar').hide();
+        }
+      );
+    }
+  );
+
+  if (navigator.userAgent.match(/iphone|android|blackberry/ig) || false) {
+    $('#more').hide();
+
+    $('.glyphicon-question-sign').unbind('mouseenter mouseleave');
+    $('.glyphicon-menu-hamburger').unbind('mouseenter mouseleave');
+    $('.glyphicon-question-sign').click(function() {
+      $('body').append('<div id="what-is-this">This is a randomly generated collection of books I\'ve read, photos I\'ve taken, and some of my piano recordings. Scroll to follow the thread!</div>');
+      $('.glyphicon-menu-hamburger').click(function() {
+        $('#what-is-this').remove();
+      });
+    });
+    $('.glyphicon-menu-hamburger').click(function() {
+      $('#sidebar').show();
+      $('.info').hide();
+      $('.scrollingHotSpotRight').hide();
+      $('.glyphicon-menu-hamburger').click(function() {
+        $('#sidebar').hide();
+        $('.info').show();
+        $('.scrollingHotSpotRight').show();
+      });
+    });
+  }
+
 
   $('#sidebar').hide();
   $('#ontop').jscroll();

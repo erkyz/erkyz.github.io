@@ -7,11 +7,13 @@ $(document).ready(function() {
     });
   }
   window.addEventListener("orientationchange",function() {
-    alert("This website is designed to be viewed in landscape mode. Please change your device's orientation to view content.");
-    $('body').hide();
-    window.addEventListener("orientationchange",function() {
-      if (window.orientation != 0) $('body').show();
-    });
+    if (window.orientation == 0) {
+      alert("This website is designed to be viewed in landscape mode. Please change your device's orientation to view content.");
+      $('body').hide();
+      window.addEventListener("orientationchange",function() {
+        if (window.orientation != 0) $('body').show();
+      });
+    }
   });
 
 

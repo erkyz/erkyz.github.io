@@ -62,7 +62,8 @@ $(document).ready(function() {
     $('.glyphicon-menu-hamburger').unbind('mouseenter mouseleave');
     $('.glyphicon-question-sign').click(function() {
       $('body').append('<div id="what-is-this">This is a randomly generated collection of books I\'ve read, photos I\'ve taken, and some of my piano recordings. Scroll to follow the thread!</div>');
-      $(document).click(function(e) {
+      $('body').css('cursor','pointer');
+      $('body').click(function(e) {
         var container = $('#what-is-this');
         if (!container.is(e.target) && container.has(e.target.length) === 0) {
           container.remove();
@@ -73,7 +74,8 @@ $(document).ready(function() {
       $('#sidebar').show();
       $('.info').hide();
       $('.scrollingHotSpotRight').hide();
-      $(document).click(function(e) {
+      $('body').css('cursor','pointer');
+      $('body').click(function(e) {
         var container = $('#sidebar');
         if (!container.is(e.target) && container.has(e.target.length) === 0) {
           container.hide();

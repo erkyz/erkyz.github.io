@@ -16,7 +16,6 @@ $(document).ready(function() {
     }
   });
 
-
   $('#snippet1').smoothDivScroll({
     hotSpotScrollingStep: 5,
     autoScrollingStep: 1,

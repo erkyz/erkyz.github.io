@@ -80,5 +80,5 @@ $(document).ready(function() {
   });
 
 
-  if (navigator.userAgent.match(/iphone|android|blackberry/ig) || false) $('#more').hide();
+  if (navigator.userAgent.match(/iphone|android|blackberry/ig) || false) $('.more').hide();
 });

@@ -63,11 +63,8 @@ $(document).ready(function() {
     $('.glyphicon-question-sign').click(function() {
       $('body').append('<div id="what-is-this">This is a randomly generated collection of books I\'ve read, photos I\'ve taken, and some of my piano recordings. Scroll to follow the thread!</div>');
       $('body').css('cursor','pointer');
-      $('body').click(function(e) {
-        var container = $('#what-is-this');
-        if (!container.is(e.target) && container.has(e.target.length) === 0) {
-          container.remove();
-        }
+      $('body').click(function() {
+        $('#what-is-this').remove();
       });
     });
     $('.glyphicon-menu-hamburger').click(function() {

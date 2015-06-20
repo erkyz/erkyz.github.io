@@ -43,8 +43,8 @@ $('#about').hover(
 
 $('#thread').hover(
   function() {
-    $('#navbar').css('background-position','0% 40%');
-    $('#navbar').css('background-image','url(https://lh3.googleusercontent.com/iZJUzv-QSdPPlEakyic_stwOE5GzEp_ecBnc-BRd38M7=w1106-h622-no)');
+    $('#navbar').css('background-position','0% 60%');
+    $('#navbar').css('background-image','url(https://scontent.cdninstagram.com/hphotos-xaf1/t51.2885-15/e15/11248731_1583760518552378_1445514832_n.jpg)');
     $('.quote').html("That's really what history mostly is: masses of people doing ordinary things.");
     $('.quote').append('<cite>Bill Bryson, At Home: A Short History of Private Life</cite>');
   }, original
@@ -60,3 +60,13 @@ $('#more').hover(
 );
 
 original();
+
+$(document).ready(function() {
+  if (window.orientation == 0) {
+    alert("This website is designed to be viewed in landscape mode.");
+    $('body').hide();
+    window.addEventListener("orientationchange",function() {
+      if (window.orientation != 0) $('body').show();
+    });
+  }
+});

@@ -22,3 +22,13 @@ $("#more").hover(
     $("#name").text("I'm Eric");
   }
 );
+
+$(document).ready(function() {
+  if (window.orientation == 0) {
+    alert("This website is designed to be viewed in landscape mode.");
+    $('body').hide();
+    window.addEventListener("orientationchange",function() {
+      if (window.orientation != 0) $('body').show();
+    });
+  }
+});

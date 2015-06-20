@@ -36,6 +36,14 @@ var insta_url = "https://docs.google.com/spreadsheets/d/1bdLCDybS8QrSY2atgRE3Qld
 var goodreads_url = 'https://docs.google.com/spreadsheets/d/1ndkMut0Z75GO6XKyDMhMyDdOzBoLTkJ0gEhviKUP9ro/pubhtml';
 
 $(document).ready(function() {
+  if (window.orientation == 0) {
+    alert("This website is designed to be viewed in landscape mode.");
+    $('body').hide();
+    window.addEventListener("orientationchange",function() {
+      if (window.orientation != 0) $('body').show();
+    });
+  }
+
   $('#sidebar').hide();
   $('#ontop').jscroll();
 
@@ -200,7 +208,9 @@ function showInfo(data, n, boxes) {
         rest.setAttribute('id','rest');
         rest.style.width = "900vw";
         $('#ontop').append(rest);
-        $('#ontop').smoothDivScroll({});
+        $('#ontop').smoothDivScroll({
+          touchScrolling: true
+        });
         $('.scrollingHotSpotLeft').append('<span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>');
         $('.scrollingHotSpotRight').append('<span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>');
       }

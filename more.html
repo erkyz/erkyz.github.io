@@ -27,7 +27,7 @@
 </head>
 
 <body class="full">
-  <div id="jplayer" class="cp-jplayer"></div>
+  <div id="jplayer1" class="cp-jplayer"></div>
   <div id="jplayer2" class="cp-jplayer"></div>
   <div id="jplayer3" class="cp-jplayer"></div>
   <div id="jplayer4" class="cp-jplayer"></div>
@@ -45,12 +45,12 @@
         </div>
         <div class="cp-circle-control"></div>
         <ul class="cp-controls">
-          <li><a href="#" class="cp-play" tabindex="1">play</a></li>
-          <li><a href="#" class="cp-pause" style="display:none;" tabindex="1">pause</a></li> <!-- Needs the inline style here, or jQuery.show() uses display:inline instead of display:block -->
+          <li><a href="#" class="cp-play" tabindex="1" id="play1">play</a></li>
+          <li><a href="#" class="cp-pause" style="display:none;" tabindex="1" id="pause1">pause</a></li> <!-- Needs the inline style here, or jQuery.show() uses display:inline instead of display:block -->
         </ul>
       </div>
 
-      <div class="snippet">
+      <div class="snippet" id="snippet1">
         <img src="https://lh3.googleusercontent.com/4FOj13yym-y9dbzKste1EYmZ8taVSpudLSwO2PrXyeut=w1114-h450-no">
         <img src="https://lh3.googleusercontent.com/t7FxiNtHlIsIhaMPd5SW1KpYmM1DnWVIYK5pZuPpST-u=w469-h185-no">
         <img src="https://lh3.googleusercontent.com/21yhs4EvoGZ3KsXoAb-ZsXpTEXjjA3rJOPbUiyyjYT7S=w470-h185-no">
@@ -65,12 +65,12 @@
         </div>
         <div class="cp-circle-control"></div>
         <ul class="cp-controls">
-          <li><a href="#" class="cp-play" tabindex="1">play</a></li>
-          <li><a href="#" class="cp-pause" style="display:none;" tabindex="1">pause</a></li> <!-- Needs the inline style here, or jQuery.show() uses display:inline instead of display:block -->
+          <li><a href="#" class="cp-play" tabindex="1" id="play2">play</a></li>
+          <li><a href="#" class="cp-pause" style="display:none;" tabindex="1" id="pause2">pause</a></li> <!-- Needs the inline style here, or jQuery.show() uses display:inline instead of display:block -->
         </ul>
       </div>
 
-      <div class="snippet">
+      <div class="snippet" id="snippet2">
         <img src="https://lh3.googleusercontent.com/iKEFl86YfrTA4GFFIN0PJ0gvCTpdvHP0Nl9osVRKgdtM=w1500-h218-no">
         <img src="https://lh3.googleusercontent.com/h47uX9po5E3Wo035bLz223HNNTnbSWWikWhaK5iBhSIo=w1499-h261-no">
         <img src="https://lh3.googleusercontent.com/jLdsM8S-8rL50tD_69xTM7gTBq7jfu-EbHRnQDckY7SE=w682-h245-no">
@@ -84,12 +84,12 @@
         </div>
         <div class="cp-circle-control"></div>
         <ul class="cp-controls">
-          <li><a href="#" class="cp-play" tabindex="1">play</a></li>
-          <li><a href="#" class="cp-pause" style="display:none;" tabindex="1">pause</a></li> <!-- Needs the inline style here, or jQuery.show() uses display:inline instead of display:block -->
+          <li><a href="#" class="cp-play" tabindex="1" id="play3">play</a></li>
+          <li><a href="#" class="cp-pause" style="display:none;" tabindex="1" id="pause3">pause</a></li> <!-- Needs the inline style here, or jQuery.show() uses display:inline instead of display:block -->
         </ul>
       </div>
 
-      <div class="snippet">
+      <div class="snippet" id="snippet3">
         <img src="https://lh3.googleusercontent.com/0wW4OrDVrXGmYSBlUGkODc0vtLSWeD-NWnqm8BNMoyvM=w1440-h338-no">
         <img src="https://lh3.googleusercontent.com/NDHOLYaCzRmcXpYJAlz4sXA6HPZw_caUcALrUIlHoFxY=w1440-h378-no">
         <img src="https://lh3.googleusercontent.com/hMLaRhVlbjaSLI8vxiiH4kYnFtZklvv11cRxLrp0578a=w1440-h375-no">
@@ -104,12 +104,12 @@
         </div>
         <div class="cp-circle-control"></div>
         <ul class="cp-controls">
-          <li><a href="#" class="cp-play" tabindex="1">play</a></li>
-          <li><a href="#" class="cp-pause" style="display:none;" tabindex="1">pause</a></li> <!-- Needs the inline style here, or jQuery.show() uses display:inline instead of display:block -->
+          <li><a href="#" class="cp-play" tabindex="1" id="play4">play</a></li>
+          <li><a href="#" class="cp-pause" style="display:none;" tabindex="1" id="pause4">pause</a></li> <!-- Needs the inline style here, or jQuery.show() uses display:inline instead of display:block -->
         </ul>
       </div>
 
-      <div class="snippet">
+      <div class="snippet" id="snippet4">
         <img src="https://lh3.googleusercontent.com/McKJKw3O_flu4llF_ovPuXS-46pyCVnERvqzWmiMdFfE=w1440-h267-no">
         <img src="https://lh3.googleusercontent.com/kBEqghUJMlPMFGV9kn_3aW0_lzM8PaNFxJtHBBuDSOB8=w1440-h235-no">
         <img src="https://lh3.googleusercontent.com/i9E06qmqEOfbKUOlw8pdkj2ACRGBuKPn7L1Aiim817s9=w1440-h244-no">
@@ -128,7 +128,7 @@
       </ul>
 
       <div id="spattering">
-        <i>A spattering of snippets of music that have inspired and moved me"</i>
+        <i>A spattering of snippets of music that have inspired and moved me.</i>
       </div>
 
     </div>

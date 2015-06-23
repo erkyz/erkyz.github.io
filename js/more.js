@@ -40,7 +40,7 @@ $(document).ready(function() {
   $('#snippet4').smoothDivScroll({
     hotSpotScrollingStep: 5,
     autoScrollingStep: 1,
-    autoScrollingInterval: 5.5,
+    autoScrollingInterval: 5,
     touchScrolling: true,
     autoScrollingDirection: "right"
   });

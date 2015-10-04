@@ -1,6 +1,8 @@
+// TODO: MOBILE, one big vertical scroll (completely different from the rest of the site's design philosophy)
+
 function original() {
   $('body').css('background-image','none');
-  $('#navbar').css('background-image','url("https://scontent-iad3-1.xx.fbcdn.net/hphotos-xat1/v/l/t1.0-9/11391253_1018770854807621_8363171317753702255_n.jpg?oh=6ddca43e0b184c5065fb3dc90970ab6b&oe=55E8AF23")');
+  $('#navbar').css('background-image','url(media/img/first.jpg)');
   $('#navbar').css('background-position','initial');
   $('#navbar').css('opacity','0.8');
   $('#navbar').text("");

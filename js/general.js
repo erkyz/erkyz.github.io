@@ -8,7 +8,7 @@
 
 $(document).ready(function() {
   if (window.orientation == 0) {
-    alert("Please rotate your device to landsacpe mode.");
+    alert("Please rotate your device to landscape mode.");
     $('body').hide();
     window.addEventListener("orientationchange",function() {
       if (window.orientation != 0) $('body').show();

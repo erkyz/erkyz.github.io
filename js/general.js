@@ -5,3 +5,22 @@
 
   ga('create', 'UA-63978013-2', 'auto');
   ga('send', 'pageview');
+
+$(document).ready(function() {
+  if (window.orientation == 0) {
+    alert("Please rotate your device to landsacpe mode.");
+    $('body').hide();
+    window.addEventListener("orientationchange",function() {
+      if (window.orientation != 0) $('body').show();
+    });
+  }
+  window.addEventListener("orientationchange",function() {
+    if (window.orientation == 0) {
+      alert("Please rotate your device to landsacpe mode.");
+      $('body').hide();
+      window.addEventListener("orientationchange",function() {
+        if (window.orientation != 0) $('body').show();
+      });
+    }
+  });
+});

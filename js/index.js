@@ -63,24 +63,3 @@ $('#more').hover(
 
 original();
 
-$(document).ready(function() {
-  if (window.orientation == 0) {
-    alert("This website is designed to be viewed in landscape mode. Please change your device's orientation to view content, and view on a desktop for the best experience. (A full mobile site is in the works!)");
-    $('body').hide();
-    window.addEventListener("orientationchange",function() {
-      if (window.orientation != 0) $('body').show();
-    });
-  }
-  window.addEventListener("orientationchange",function() {
-    if (window.orientation == 0) {
-      alert("This website is designed to be viewed in landscape mode. Please change your device's orientation to view content.");
-      $('body').hide();
-      window.addEventListener("orientationchange",function() {
-        if (window.orientation != 0) $('body').show();
-      });
-    }
-  });
-
-
-  if (navigator.userAgent.match(/iphone|android|blackberry/ig) || false) $('.more').hide();
-});

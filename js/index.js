@@ -29,8 +29,8 @@ $('#home').hover(
   function() {
     $('#navbar').css('background-position','0% 60%');
     $('#navbar').css('background-image','url(https://lh3.googleusercontent.com/idbRMqm0h21DX_EDSxyL8rYMV3CHDo8reRmmN61WSREB=w1152-h360-no)');
-    $('.quote').html("La vita non &egrave; n&eacute; brutta n&eacute; bella, ma &egrave; originale!");
-    $('.quote').append('<cite>Italio Svevo, La coscienza di Zeno</cite>');
+    $('.quote').html("I wanted to live deep and suck out all the marrow of life.");
+    $('.quote').append('<cite>Henry David Thoreau, Walden</cite>');
   }, original
 );
 
@@ -57,7 +57,7 @@ $('#more').hover(
     $('#navbar').css('background-position','0% 50%');
     $('#navbar').css('background-image','url(https://lh3.googleusercontent.com/2OeebGW00xvuqnqoIHdRDnomiHYNqTgGDXEzRtnoPfAz=w992-h211-no)');
     $('.quote').html("Hatred is the demonstration of a closed mind.");
-    $('.quote').append('<cite>Me</cite>');
+    $('.quote').append('<cite>Eric Zhu</cite>');
   }, original
 );
 

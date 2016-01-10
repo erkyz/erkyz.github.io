@@ -10,13 +10,13 @@ $(document).ready(function() {
   if (window.orientation == 0) {
     alert("Please rotate your device to landscape mode.");
     $('body').hide();
+    $('html').append("<img src='media/img/mobile_rotate_icon.png'></img>");
     window.addEventListener("orientationchange",function() {
       if (window.orientation != 0) $('body').show();
     });
   }
   window.addEventListener("orientationchange",function() {
     if (window.orientation == 0) {
-      alert("Please rotate your device to landsacpe mode.");
       $('body').hide();
       window.addEventListener("orientationchange",function() {
         if (window.orientation != 0) $('body').show();

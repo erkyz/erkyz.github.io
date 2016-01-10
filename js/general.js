@@ -11,7 +11,7 @@ $(document).ready(function() {
     alert("Please rotate your device to landscape mode.");
     $('body').hide();
     $('html').append("<div id='rotate'><img src='media/img/mobile_rotate_icon.png'></img>Please rotate your device. Make sure that auto-portrait mode is turned off.</div>");
-    $('#rotate').css('background-color','black');
+    $('html').css('background-color','black');
     $('#rotate').css('color','white');
     $('#rotate').css('margin','auto');
     $('#rotate').css('width','60%');

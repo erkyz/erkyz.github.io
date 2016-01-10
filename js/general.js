@@ -10,13 +10,16 @@ $(document).ready(function() {
   if (window.orientation == 0) {
     alert("Please rotate your device to landscape mode.");
     $('body').hide();
-    $('html').append("<img id='rotate' src='media/img/mobile_rotate_icon.png'></img>");
-    $('html').css('background-color','black');
-    $('html').text('Please rotate your device to landscape mode. Make sure auto-portrait mode is turned off.');
+    $('html').append("<div id='rotate'><img src='media/img/mobile_rotate_icon.png'></img>Please rotate your device. Make sure that auto-portrait mode is turned off.</div>");
+    $('#rotate').css('background-color','black');
+    $('#rotate').css('color','white');
     $('#rotate').css('margin','auto');
     $('#rotate').css('width','60%');
     window.addEventListener("orientationchange",function() {
-      if (window.orientation != 0) $('body').show();
+      if (window.orientation != 0) { 
+        $('body').show();
+        $('#rotate').hide();
+      }
     });
   }
   window.addEventListener("orientationchange",function() {

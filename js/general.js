@@ -9,7 +9,7 @@
 $(document).ready(function() {
   if (window.orientation == 0) {
     $('body').hide();
-    $('html').append("<div id='rotate'><img style='margin:auto;width:90%' src='media/img/mobile_rotate_icon.png'></img><div style='padding-top:50px'>Please rotate your device.</div></div>");
+    $('html').append("<div id='rotate'><img style='margin:auto;height:auto;width:90%;' src='media/img/mobile_rotate_icon.png'></img><div style='padding-top:50px'>Please rotate your device.</div></div>");
     $('html').css('background-color','black');
     $('#rotate').css('color','white');
     $('#rotate').css('margin','auto');
@@ -32,3 +32,4 @@ $(document).ready(function() {
     }
   });
 });
+

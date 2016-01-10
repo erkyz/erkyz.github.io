@@ -10,12 +10,13 @@ $(document).ready(function() {
   if (window.orientation == 0) {
     alert("Please rotate your device to landscape mode.");
     $('body').hide();
-    $('html').append("<div id='rotate'>\n\n\n<img align='center' src='media/img/mobile_rotate_icon.png'></img> \n\n Please rotate your device. Make sure that auto-portrait mode is turned off.</div>");
+    $('html').append("<div id='rotate'><img align='center' src='media/img/mobile_rotate_icon.png'></img> \n\n Please rotate your device. Make sure that auto-portrait mode is turned off.</div>");
     $('html').css('background-color','black');
     $('#rotate').css('color','white');
     $('#rotate').css('margin','auto');
     $('#rotate').css('width','60%');
-    $('#rotate').css('font-size',"40px");
+    $('#rotate').css('font-size',"50px");
+    $('#rotate').css('padding-top',"100px");
     window.addEventListener("orientationchange",function() {
       if (window.orientation != 0) { 
         $('body').show();

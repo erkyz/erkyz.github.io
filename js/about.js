@@ -5,7 +5,7 @@ $('#github').click(function() {
   window.open("https://github.com/erkyz");
 });
 $('#instagram').click(function() {
-  window.open("https://instagram.com/e_zhu/");
+  window.open("https://instagram.com/my_zhuniverse/");
 });
 
 $("#thread").hover(

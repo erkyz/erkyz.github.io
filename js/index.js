@@ -36,8 +36,8 @@ $('#home').hover(
 
 $('#about').hover(
   function() {
-    $('#navbar').css('background-image','url(media/img/DSC_0097_5.png)');
-    $('#navbar').css('background-position','0% 43%');
+    $('#navbar').css('background-image','url(https://lh3.googleusercontent.com/EikC8jD0tR05n_7aEyXaKvZtY2nLYRlY9Lm0u4y9umyjsLYKXNCd2bQxEBcN77VgBFMp5xkJmi3v68Lg4s_w5sjcOylyFgnxWlXQknh3uwFIHBo5HXpALRsoYdPp7G-Boo-vs3NJHPooTolauIoLdVedDnJgjHT7jl17QHJ2vtgsy8zgYwz_Zmw2cNyd54LKI7BJSC71jnH3jnrtp5Xv27DExIReQZvDtf0cClUHzeqlct2vj6D87WJnm3X9j2Rcu5Q5RME9WSlcJZgUK2Jge1mh45S_wakrLVcANHJ0HLp-tbnGIc__GAfJ1VXE6p4EYqYQv0hIQz-KSqBZgkElif6q3iGTc-mdkwr-h-komdQHzd1_WjxLT3Gk8TM7cdtbVwcV5zQbeDqBuVsn46BLPdRQEBeGxtaFHnDP1RDDVQO1HdfnznXu83O9TNSJBammGvs23QgxnwBRYs4AKiV98s3dWquqrlW1yuU69wsuYSx31vqFMwaArqPQulll9cslLVrwxGtnnajeRW_lZbTY2vtyx8LYEdGXShH8H106mCpxgwxLlUJeZX-Uq1zu_sRFrEnQKg=w1440-h477-no)');
+    $('#navbar').css('background-position','0% 38%');
     $('.quote').html("But the law of loving others could not be discovered by reason, because it is unreasonable.");
     $('.quote').append('<cite>Leo Tolstoy, Anna Karenina</cite>');
   }, original
@@ -45,8 +45,8 @@ $('#about').hover(
 
 $('#thread').hover(
   function() {
-    $('#navbar').css('background-position','0% 40%');
-    $('#navbar').css('background-image','url(https://lh3.googleusercontent.com/1y8h0znekSh1BZJkTaLs6qRu3i0TZvIrf9tDEN6zv8NZ=w1383-h778-no)');
+    $('#navbar').css('background-position','0% 50%');
+    $('#navbar').css('background-image','url(https://lh3.googleusercontent.com/2OeebGW00xvuqnqoIHdRDnomiHYNqTgGDXEzRtnoPfAz=w992-h211-no)');
     $('.quote').html("That's really what history mostly is: masses of people doing ordinary things.");
     $('.quote').append('<cite>Bill Bryson, At Home: A Short History of Private Life</cite>');
   }, original
@@ -54,8 +54,8 @@ $('#thread').hover(
 
 $('#more').hover(
   function() {
-    $('#navbar').css('background-position','0% 50%');
-    $('#navbar').css('background-image','url(https://lh3.googleusercontent.com/2OeebGW00xvuqnqoIHdRDnomiHYNqTgGDXEzRtnoPfAz=w992-h211-no)');
+    $('#navbar').css('background-position','0% 39%');
+    $('#navbar').css('background-image','url(https://lh3.googleusercontent.com/1y8h0znekSh1BZJkTaLs6qRu3i0TZvIrf9tDEN6zv8NZ=w1383-h778-no)');
     $('.quote').html("Hatred is the demonstration of a closed mind.");
     $('.quote').append('<cite>Eric Zhu</cite>');
   }, original

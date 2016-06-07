@@ -7,6 +7,9 @@ $('#github').click(function() {
 $('#instagram').click(function() {
   window.open("https://instagram.com/zhuniversal/");
 });
+$('#goodreads').click(function() {
+  window.open("https://www.goodreads.com/user/show/33571041-eric-z");
+});
 
 $("#thread").hover(
   function() {

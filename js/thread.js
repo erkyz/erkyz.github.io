@@ -106,7 +106,8 @@ function generateRGB() {
   var r = Math.floor(Math.random()*256);
   var g = Math.floor(Math.random()*256);
   var b = Math.floor(Math.random()*256);
-  if (r>220 || g>215 || b>220) {
+  // At least two of three. Just messing around with color.
+  if ((r>210) && ((g>235) || (b>240)) || ((g>235) && (b>240))) {
     return generateRGB();
   } else {
     return 'rgb(' + r + ',' + g + ',' + b + ')';
@@ -157,8 +158,6 @@ function fillBox(obj,n) {
     }
 
     $('#box' + n).html(title + '<div class="author">' + author + '</div>');
-    $('#box' + n).click(function() {window.open(obj.url)});
-    $('#box' + n).css('cursor','pointer');
   
   } else if (obj.music != null) {
     // $('#box' + n).css('background-color',generateRGB());

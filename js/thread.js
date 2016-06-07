@@ -103,15 +103,10 @@ function shuffle(o){
 } 
 
 function generateRGB() {
-  var r = Math.floor(Math.random()*256);
-  var g = Math.floor(Math.random()*256);
-  var b = Math.floor(Math.random()*256);
-  // At least two of three. Just messing around with color.
-  if ((r>210) && ((g>235) || (b>240)) || ((g>235) && (b>240))) {
-    return generateRGB();
-  } else {
-    return 'rgb(' + r + ',' + g + ',' + b + ')';
-  }
+  var r = Math.floor(Math.random()*55);
+  var g = Math.floor(Math.random()*75);
+  var b = Math.floor(Math.random()*75);
+  return 'rgb(' + r + ',' + g + ',' + b + ')';
 }
 
 function makeBoxes(start,end,append) {

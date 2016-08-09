@@ -10,6 +10,9 @@ $('#instagram').click(function() {
 $('#goodreads').click(function() {
   window.open("https://www.goodreads.com/user/show/33571041-eric-z");
 });
+$('#pocket').click(function() {
+  window.open("https://getpocket.com/@erkyz");
+});
 
 $("#thread").hover(
   function() {

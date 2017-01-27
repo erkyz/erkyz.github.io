@@ -1,0 +1,45 @@
+body {
+  overflow: hidden;
+}
+
+#top_banner {
+  height: 60vh;
+}
+
+#title {
+  font-size: 8vh;
+  padding-left: 15vw;
+  padding-top: 10vh;
+}
+#caveat {
+  cursor: help;
+  display: inline-block;
+}
+#caveatbar {
+  height: 3vh;
+  text-align: right;
+  font-size: 1.5vh;
+  padding-right: 3vw;
+}
+
+#navbar {
+  padding-top: 2vh;
+  height: 18vh;
+  opacity: 0.8;
+  font-size: 28px;
+  padding-right: 200px;
+  padding-left: 15vw;
+  background-image: url("https://scontent-iad3-1.xx.fbcdn.net/hphotos-xat1/v/l/t1.0-9/11391253_1018770854807621_8363171317753702255_n.jpg?oh=6ddca43e0b184c5065fb3dc90970ab6b&oe=55E8AF23");
+}
+
+#quotebar {
+  margin-top: 3vh;
+  height: 20vh;
+  margin-left: auto;
+  margin-right: auto;
+  width:45vw;
+  /*
+  padding-left: 15vw;
+  padding-right: 15vw;
+  */
+}

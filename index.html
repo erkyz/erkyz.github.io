@@ -1,39 +1,45 @@
 <html>
-<title>Thread - Eric Zhu</title>
+<title>Eric Zhu</title>
 <head>
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="css/general.css">
-  <link rel="stylesheet" type="text/css" href="css/index.css">
+  <link rel="stylesheet" type="text/css" href="css/home.css">
   <link rel="icon" type="image/png" href="media/img/e.png">
   <script src="bower_components/jquery/dist/jquery.min.js"></script>
   <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-  <script src="bower_components/tabletop/src/tabletop.js"></script>
-  <script src="bower_components/jscroll/jquery.jscroll.min.js"></script>
-  <script src="bower_components/smooth-div-scroll/js/jquery-ui-1.10.3.custom.min.js"></script>
-  <script src="bower_components/smooth-div-scroll/js/jquery.mousewheel.min.js"></script>
-  <script src="bower_components/smooth-div-scroll/js/jquery.kinetic.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="bower_components/smooth-div-scroll/css/smoothDivScroll.css"></script>
-  <script src="bower_components/smooth-div-scroll/js/jquery.smoothdivscroll-1.3-min.js"></script>
   <script src="js/general.js"></script>
 </head>
 
 <body class="full">
-  <span class="glyphicon glyphicon-question-sign info" aria-hidden="true"></span>
-  <span class="glyphicon glyphicon-menu-hamburger info" aria-hidden="true"></span>
+  <div id="top_banner" class="full">
+    <div class="col-md-9 col-xs-9" id="title">
+      Welcome to the <br>
+      official<div id='caveat'>*</div> website of <br>
+      <b>Eric Zhu.</b>
+    </div>
 
-  <div id="ontop"></div>
+    <div class="col-md-3 col-xs-3 col-md-offset-9 col-xs-offset-9" id="sidebar">
+      <ul class="nav">
+        <li class="active"><a href="#" id="home">Home</a></li>
+        <li><a href="about.html" id="about">About</a></li>
+        <li><a href="thread.html" id="thread">Thread</a></li>
+        <li class="more"><a href="more.html" id="more">Snippets</a></li>
+      </ul>
+    </div>
+  </div>
 
-  <div class="col-md-3 col-xs-3 col-md-offset-9 col-xs-offset-9" id="sidebar">
-    <ul class="nav">
-      <li><a href="home.html" id="home">Home</a></li>
-      <li><a href="about.html" id="about">About</a></li>
-      <li class="active"><a href="#" id="index">Thread</a></li>
-      <li class="more"><a href="more.html" id="more">Snippets</a></li>
-    </ul>
+  <div id="caveatbar"></div>
+  <div id="navbar" class="full"></div>
+
+  <div id="quotebar">
+    <div class="quote"> 
+      Life is neither beautiful nor ugly, but it's original!
+      <cite>Italio Svevo, Zeno's Conscience</cite>
+    </div>
   </div>
 
 </body>
-
-<script src="js/index.js"></script>
+  
+<script src="js/home.js"></script>
 
 </html>
